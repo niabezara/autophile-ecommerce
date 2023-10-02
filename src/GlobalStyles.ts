@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body{
     font-family: 'Manrope', sans-serif;
+    background-color: aquamarine;
   }
 `;
 
