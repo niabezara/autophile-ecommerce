@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MobileVersion from "./MobileVersion";
 import TabletVersion from "./TabletVersion";
+import DesktopVersion from "./DesktopVersion";
 
 export default function NavBar({
   isNavbarOpen,
@@ -11,10 +12,12 @@ export default function NavBar({
   toggleNavbar: () => void;
 }) {
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isTablet, setIsTablet] = useState<boolean>(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 700);
+      setIsTablet(window.innerWidth <= 900);
     };
 
     handleResize();
@@ -27,15 +30,17 @@ export default function NavBar({
   }, []);
 
   return (
-    <>
+    <header>
       {isMobile ? (
         <MobileVersion
           isNavbarOpen={isNavbarOpen}
           toggleNavbar={toggleNavbar}
         />
-      ) : (
+      ) : isTablet ? (
         <TabletVersion />
+      ) : (
+        <DesktopVersion />
       )}
-    </>
+    </header>
   );
 }

@@ -7,7 +7,6 @@ export default function TabletVersion() {
 
   const toggleNavbar = () => {
     setIsNavbarOpen(!isNavbarOpen);
-    console.log("nia");
   };
   return (
     <Head>
@@ -32,7 +31,7 @@ export default function TabletVersion() {
             <Link to="">EARPHONES</Link>
           </li>
         </NavList>
-        <img src="/assets/shared/desktop/logo.svg" alt="" />
+        <Logo src="/assets/shared/desktop/logo.svg" alt="" />
       </nav>
       <img
         src="/assets/shared/desktop/icon-cart.svg"
@@ -47,8 +46,12 @@ const Head = styled.div`
   background-color: black;
   display: flex;
   align-items: center;
-  padding: 2.4rem;
+  padding: 3.9rem;
   justify-content: space-between;
+`;
+
+const Logo = styled.img`
+  margin-left: 4.2rem;
 `;
 
 const NavList = styled.ul<{ open: boolean }>`
@@ -60,7 +63,7 @@ const NavList = styled.ul<{ open: boolean }>`
   position: fixed;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
   right: 0;
-  top: 69px;
+  top: 100px;
   width: 100%;
   padding: 2rem 2.4rem 2rem 2.4rem;
   transition: transform 0.3s ease-in-out;
