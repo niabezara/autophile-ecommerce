@@ -7,6 +7,7 @@ import { useState } from "react";
 import Headphones from "./routes/Headphones";
 import Speakers from "./routes/Speakers";
 import Earphones from "./routes/Earphones";
+import Footer from "./components/Footer";
 
 function App() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -37,6 +38,7 @@ function App() {
         <Route path="/Speakers" element={<Speakers />} />
         <Route path="/Earphones" element={<Earphones />} />
       </Routes>
+      <Footer />
     </>
   );
 }

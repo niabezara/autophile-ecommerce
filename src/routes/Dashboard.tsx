@@ -9,7 +9,7 @@ export default function Dashboard() {
         Experience natural, lifelike audio and exceptional build quality made
         for the passionate music enthusiast.
       </Desc>
-      <Button>See Product</Button>
+      <button className="GlobalButton">See Product</button>
     </Conatiner>
   );
 }
@@ -87,19 +87,5 @@ const Desc = styled.p`
   @media screen and (min-width: 900px) {
     text-align: left;
     margin-bottom: 2rem;
-  }
-`;
-const Button = styled.button`
-  background-color: #d87d4a;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 1.5rem 3.1rem;
-  border: none;
-  cursor: pointer;
-  &:hover {
-    background-color: #fbaf85;
   }
 `;
