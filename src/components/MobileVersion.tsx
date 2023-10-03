@@ -22,13 +22,13 @@ export default function MobileVersion({
             <li>HOME</li>
           </Link>
 
-          <Link to="">
+          <Link to="/Headphones">
             <li>HEADPHONES</li>
           </Link>
-          <Link to="">
+          <Link to="/Speakers">
             <li>SPEAKERS</li>
           </Link>
-          <Link to="">
+          <Link to="/Earphones">
             <li>EARPHONES</li>
           </Link>
         </NavList>

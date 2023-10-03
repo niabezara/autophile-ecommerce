@@ -4,20 +4,22 @@ import styled from "styled-components";
 export default function DesktopVersion() {
   return (
     <Head>
-      <Logo src="/assets/shared/desktop/logo.svg" alt="" />
+      <Link to="/">
+        <Logo src="/assets/shared/desktop/logo.svg" alt="" />
+      </Link>
       <Nav>
         <ul>
           <Link to="/">
             <li>HOME</li>
           </Link>
 
-          <Link to="">
+          <Link to="/Headphones">
             <li>HEADPHONES</li>
           </Link>
-          <Link to="">
+          <Link to="/Speakers">
             <li>SPEAKERS</li>
           </Link>
-          <Link to="">
+          <Link to="/Earphones">
             <li>EARPHONES</li>
           </Link>
         </ul>

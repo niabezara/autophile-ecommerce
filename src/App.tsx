@@ -4,6 +4,9 @@ import NavBar from "./components/NavBar";
 import { Helmet } from "react-helmet";
 import Dashboard from "./routes/Dashboard";
 import { useState } from "react";
+import Headphones from "./routes/Headphones";
+import Speakers from "./routes/Speakers";
+import Earphones from "./routes/Earphones";
 
 function App() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -30,6 +33,9 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/Headphones" element={<Headphones />} />
+        <Route path="/Speakers" element={<Speakers />} />
+        <Route path="/Earphones" element={<Earphones />} />
       </Routes>
     </>
   );
