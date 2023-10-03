@@ -1,6 +1,8 @@
+import { Route, Routes } from "react-router-dom";
 import GlobalStyle from "./GlobalStyles";
 import NavBar from "./components/NavBar";
 import { Helmet } from "react-helmet";
+import Dashboard from "./routes/Dashboard";
 
 function App() {
   return (
@@ -15,6 +17,9 @@ function App() {
       </Helmet>
       <GlobalStyle />
       <NavBar />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+      </Routes>
     </>
   );
 }
