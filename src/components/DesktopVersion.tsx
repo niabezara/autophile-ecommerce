@@ -7,26 +7,19 @@ export default function DesktopVersion() {
       <Logo src="/assets/shared/desktop/logo.svg" alt="" />
       <Nav>
         <ul>
-          <li>
-            <Link className="Link" to="/">
-              HOME
-            </Link>
-          </li>
-          <li>
-            <Link className="Link" to="">
-              HEADPHONES
-            </Link>
-          </li>
-          <li>
-            <Link className="Link" to="">
-              SPEAKERS
-            </Link>
-          </li>
-          <li>
-            <Link className="Link" to="">
-              EARPHONES
-            </Link>
-          </li>
+          <Link to="/">
+            <li>HOME</li>
+          </Link>
+
+          <Link to="">
+            <li>HEADPHONES</li>
+          </Link>
+          <Link to="">
+            <li>SPEAKERS</li>
+          </Link>
+          <Link to="">
+            <li>EARPHONES</li>
+          </Link>
         </ul>
       </Nav>
       <Logo src="/assets/shared/desktop/icon-cart.svg" alt="" />
@@ -59,15 +52,16 @@ const Nav = styled.nav`
     font-weight: 700;
     line-height: 25px;
     letter-spacing: 2px;
+    a {
+      text-decoration: none;
+    }
     li {
-      .Link {
-        color: white;
-        text-decoration: none;
-        cursor: pointer;
-        &:active,
-        &:focus {
-          color: #d87d4a;
-        }
+      color: white;
+      cursor: pointer;
+
+      &:active,
+      &:focus {
+        color: #d87d4a;
       }
     }
   }

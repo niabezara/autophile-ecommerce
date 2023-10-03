@@ -18,18 +18,19 @@ export default function TabletVersion() {
           onClick={toggleNavbar}
         />
         <NavList open={isNavbarOpen}>
-          <li>
-            <Link to="/">HOME</Link>
-          </li>
-          <li>
-            <Link to="">HEADPHONES</Link>
-          </li>
-          <li>
-            <Link to="">SPEAKERS</Link>
-          </li>
-          <li>
-            <Link to="">EARPHONES</Link>
-          </li>
+          <Link to="/">
+            <li>HOME</li>
+          </Link>
+
+          <Link to="">
+            <li>HEADPHONES</li>
+          </Link>
+          <Link to="">
+            <li>SPEAKERS</li>
+          </Link>
+          <Link to="">
+            <li>EARPHONES</li>
+          </Link>
         </NavList>
         <Logo src="/assets/shared/desktop/logo.svg" alt="" />
       </nav>

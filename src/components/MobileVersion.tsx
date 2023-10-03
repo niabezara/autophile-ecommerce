@@ -18,18 +18,19 @@ export default function MobileVersion({
           onClick={toggleNavbar}
         />
         <NavList open={isNavbarOpen}>
-          <li>
-            <Link to="/">HOME</Link>
-          </li>
-          <li>
-            <Link to="">HEADPHONES</Link>
-          </li>
-          <li>
-            <Link to="">SPEAKERS</Link>
-          </li>
-          <li>
-            <Link to="">EARPHONES</Link>
-          </li>
+          <Link to="/">
+            <li>HOME</li>
+          </Link>
+
+          <Link to="">
+            <li>HEADPHONES</li>
+          </Link>
+          <Link to="">
+            <li>SPEAKERS</li>
+          </Link>
+          <Link to="">
+            <li>EARPHONES</li>
+          </Link>
         </NavList>
       </nav>
       <img src="/assets/shared/desktop/logo.svg" alt="" />
@@ -44,10 +45,22 @@ export default function MobileVersion({
 
 const Head = styled.div`
   background-color: black;
+  /* z-index: 9999; */
   display: flex;
   align-items: center;
+  position: relative;
   padding: 2.4rem;
   justify-content: space-between;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.2;
+    height: 1px;
+    background-color: white;
+  }
 `;
 
 const NavList = styled.ul<{ open: boolean }>`
