@@ -3,8 +3,15 @@ import GlobalStyle from "./GlobalStyles";
 import NavBar from "./components/NavBar";
 import { Helmet } from "react-helmet";
 import Dashboard from "./routes/Dashboard";
+import { useState } from "react";
 
 function App() {
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsNavbarOpen(!isNavbarOpen);
+    console.log("nia");
+  };
   return (
     <>
       <Helmet>
@@ -16,7 +23,11 @@ function App() {
         />
       </Helmet>
       <GlobalStyle />
-      <NavBar />
+      <NavBar
+        isNavbarOpen={isNavbarOpen}
+        setIsNavbarOpen={setIsNavbarOpen}
+        toggleNavbar={toggleNavbar}
+      />
       <Routes>
         <Route path="/" element={<Dashboard />} />
       </Routes>

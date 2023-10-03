@@ -1,13 +1,14 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export default function MobileVersion({
-  isNavbarOpen,
-  toggleNavbar,
-}: {
-  isNavbarOpen: boolean;
-  toggleNavbar: () => void;
-}) {
+export default function TabletVersion() {
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsNavbarOpen(!isNavbarOpen);
+    console.log("nia");
+  };
   return (
     <Head>
       <nav>
@@ -31,8 +32,8 @@ export default function MobileVersion({
             <Link to="">EARPHONES</Link>
           </li>
         </NavList>
+        <img src="/assets/shared/desktop/logo.svg" alt="" />
       </nav>
-      <img src="/assets/shared/desktop/logo.svg" alt="" />
       <img
         src="/assets/shared/desktop/icon-cart.svg"
         alt=""
