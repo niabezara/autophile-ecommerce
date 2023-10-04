@@ -12,9 +12,11 @@ const GlobalStyle = createGlobalStyle`
   }
   body{
     font-family: 'Manrope', sans-serif;
-
     font-style: normal;
+   
   }
+
+
   .GlobalButton {
     background-color: #d87d4a;
     color: #fff;

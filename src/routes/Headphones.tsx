@@ -69,12 +69,20 @@ const Wrapper = styled.div<{ index: number }>`
     gap: 3.2rem;
     align-items: center;
   }
-  @media screen and (min-width: 700px) {
-    .Info {
-    }
-  }
+
   @media screen and (min-width: 900px) {
     flex-direction: ${(props) =>
       props.index % 2 === 0 ? "row-reverse" : "row"};
+    gap: 12.5rem;
+    .Info {
+      align-items: flex-start;
+      .Title {
+        text-align: left;
+        margin: unset;
+      }
+      .ProductDescription {
+        text-align: left;
+      }
+    }
   }
 `;

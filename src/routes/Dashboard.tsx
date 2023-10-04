@@ -3,28 +3,23 @@ import styled from "styled-components";
 export default function Dashboard() {
   return (
     <Conatiner>
-      <New>NEW PRODUCT</New>
-      <Title>XX99 Mark II HeadphoneS</Title>
-      <Desc>
-        Experience natural, lifelike audio and exceptional build quality made
-        for the passionate music enthusiast.
-      </Desc>
-      <button className="GlobalButton">See Product</button>
+      <div className="subCont">
+        <New>NEW PRODUCT</New>
+        <Title>XX99 Mark II HeadphoneS</Title>
+        <Desc>
+          Experience natural, lifelike audio and exceptional build quality made
+          for the passionate music enthusiast.
+        </Desc>
+        <button className="GlobalButton">See Product</button>
+      </div>
     </Conatiner>
   );
 }
 
 const Conatiner = styled.main`
-  height: 100vh;
-  display: flex;
-  /* max-width: 1024px;
-  margin: 0 auto; */
+  width: 100%;
   padding: 2.3rem;
   position: relative;
-  flex-direction: column;
-  row-gap: 1.6rem;
-  align-items: center;
-  justify-content: center;
   background: url("./assets/home/mobile/image-header.jpg") lightgray 0px 0px /
     100% 100% no-repeat;
   opacity: 1.5021;
@@ -32,6 +27,15 @@ const Conatiner = styled.main`
   filter: brightness(0.6);
   background-size: cover;
   background-color: black;
+
+  .subCont {
+    display: flex;
+    height: 100vh;
+    row-gap: 1.6rem;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
   @media screen and (min-width: 700px) {
     background: url("./assets/home/tablet/image-header.jpg") lightgray 0px 0px /
       100% 100% no-repeat;
@@ -41,8 +45,14 @@ const Conatiner = styled.main`
     background: url("./assets/home/desktop/image-hero.jpg") lightgray 0px 0px /
       100% 100% no-repeat;
     align-items: flex-start;
-    padding: 0 16.5rem;
+    padding: 3.9rem;
+    /* padding: 0 16.5rem; */
     gap: 2.4rem;
+    .subCont {
+      max-width: 100.5rem;
+      align-items: flex-start;
+      margin: 0 auto;
+    }
   }
 `;
 const New = styled.p`
