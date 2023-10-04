@@ -4,36 +4,39 @@ import styled from "styled-components";
 export default function DesktopVersion() {
   return (
     <Head>
-      <Link to="/">
-        <Logo src="/assets/shared/desktop/logo.svg" alt="" />
-      </Link>
-      <Nav>
-        <ul>
-          <Link to="/">
-            <li>HOME</li>
-          </Link>
+      <div className="Subheader">
+        <Link to="/">
+          <Logo src="/assets/shared/desktop/logo.svg" alt="" />
+        </Link>
+        <Nav>
+          <ul>
+            <Link to="/">
+              <li>HOME</li>
+            </Link>
 
-          <Link to="/Headphones">
-            <li>HEADPHONES</li>
-          </Link>
-          <Link to="/Speakers">
-            <li>SPEAKERS</li>
-          </Link>
-          <Link to="/Earphones">
-            <li>EARPHONES</li>
-          </Link>
-        </ul>
-      </Nav>
-      <Logo src="/assets/shared/desktop/icon-cart.svg" alt="" />
+            <Link to="/Headphones">
+              <li>HEADPHONES</li>
+            </Link>
+            <Link to="/Speakers">
+              <li>SPEAKERS</li>
+            </Link>
+            <Link to="/Earphones">
+              <li>EARPHONES</li>
+            </Link>
+          </ul>
+        </Nav>
+        <Logo src="/assets/shared/desktop/icon-cart.svg" alt="" />
+      </div>
     </Head>
   );
 }
 const Head = styled.div`
   background-color: black;
-  display: flex;
+
   align-items: center;
-  padding: 3.5rem 16.5rem;
+  padding: 3.9rem;
   position: relative;
+  width: 100%;
   justify-content: space-between;
   &:after {
     content: "";
@@ -43,6 +46,12 @@ const Head = styled.div`
     opacity: 0.2;
     height: 1px;
     background-color: white;
+  }
+  .Subheader {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100.5rem;
+    margin: 0 auto;
   }
 `;
 const Nav = styled.nav`
