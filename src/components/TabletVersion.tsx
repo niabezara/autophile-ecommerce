@@ -48,8 +48,19 @@ const Head = styled.div`
   background-color: black;
   display: flex;
   align-items: center;
+  position: relative;
   padding: 3.9rem;
   justify-content: space-between;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.2;
+    height: 1px;
+    background-color: white;
+  }
 `;
 
 const Logo = styled.img`

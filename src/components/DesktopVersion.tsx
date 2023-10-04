@@ -32,7 +32,6 @@ export default function DesktopVersion() {
 }
 const Head = styled.div`
   background-color: black;
-
   align-items: center;
   padding: 3.9rem;
   position: relative;
@@ -42,7 +41,7 @@ const Head = styled.div`
     content: "";
     position: absolute;
     bottom: 0;
-    width: 75%;
+    width: 90%;
     opacity: 0.2;
     height: 1px;
     background-color: white;

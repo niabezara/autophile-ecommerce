@@ -4,45 +4,73 @@ import Products from "../data/data.json";
 export default function Speakers() {
   return (
     <Container>
-      {Products.map(
-        (item, index) =>
-          item.category === "speakers" && (
-            <Wrapper key={item.id} index={index}>
-              <Card>
-                <Image
-                  src={
-                    window.innerWidth >= 900
-                      ? item.categoryImage.desktop
-                      : window.innerWidth >= 700
-                      ? item.categoryImage.tablet
-                      : item.categoryImage.mobile
-                  }
-                  alt=""
-                />
-              </Card>
-              <div className="Info">
-                {item.new && <p className="News">NEW PRODUCT</p>}
-                <h3 className="Title">{item.name}</h3>
-                <p className="ProductDescription">{item.description}</p>
-                <button className="GlobalButton">See Product</button>
-              </div>
-            </Wrapper>
-          )
-      )}
+      <div className="heading">
+        <h1>SPEAKERS</h1>
+      </div>
+      <SubContainer>
+        {Products.map(
+          (item, index) =>
+            item.category === "speakers" && (
+              <Wrapper key={item.id} index={index}>
+                <Card>
+                  <Image
+                    src={
+                      window.innerWidth >= 900
+                        ? item.categoryImage.desktop
+                        : window.innerWidth >= 700
+                        ? item.categoryImage.tablet
+                        : item.categoryImage.mobile
+                    }
+                    alt=""
+                  />
+                </Card>
+                <div className="Info">
+                  {item.new && <p className="News">NEW PRODUCT</p>}
+                  <h3 className="Title">{item.name}</h3>
+                  <p className="ProductDescription">{item.description}</p>
+                  <button className="GlobalButton">See Product</button>
+                </div>
+              </Wrapper>
+            )
+        )}
+      </SubContainer>
     </Container>
   );
 }
-const Container = styled.main`
+const SubContainer = styled.div`
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
   padding: 2.4rem;
+
   @media screen and (min-width: 700px) {
     padding: 3.9rem;
   }
   @media screen and (min-width: 900px) {
     max-width: 100.5rem;
     margin: 0 auto;
+  }
+`;
+
+const Container = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .heading {
+    background-color: black;
+    padding: 3.2rem;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    @media screen and (min-width: 900px) {
+      padding: 9.7rem;
+    }
   }
 `;
 
@@ -76,6 +104,7 @@ const Wrapper = styled.div<{ index: number }>`
     gap: 12.5rem;
     .Info {
       align-items: flex-start;
+      gap: 1.6rem;
       .Title {
         text-align: left;
         margin: unset;
