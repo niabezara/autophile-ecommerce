@@ -32,9 +32,10 @@ const Conatiner = styled.main`
   filter: brightness(0.6);
   background-size: cover;
   background-color: black;
-  @media screen and (min-width: 500px) {
+  @media screen and (min-width: 700px) {
     background: url("./assets/home/tablet/image-header.jpg") lightgray 0px 0px /
       100% 100% no-repeat;
+    padding: 3.9rem;
   }
   @media screen and (min-width: 900px) {
     background: url("./assets/home/desktop/image-hero.jpg") lightgray 0px 0px /
@@ -63,7 +64,7 @@ const Title = styled.h1`
   letter-spacing: 1.286px;
   text-transform: uppercase;
   margin-bottom: 0.8rem;
-  @media screen and (min-width: 500px) {
+  @media screen and (min-width: 700px) {
     max-width: 39.6rem;
   }
   @media screen and (min-width: 900px) {
@@ -81,7 +82,7 @@ const Desc = styled.p`
   line-height: 25px;
   opacity: 0.75;
   margin-bottom: 1.2rem;
-  @media screen and (min-width: 500px) {
+  @media screen and (min-width: 700px) {
     max-width: 39.6rem;
   }
   @media screen and (min-width: 900px) {
