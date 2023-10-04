@@ -4,47 +4,49 @@ import styled from "styled-components";
 export default function Footer() {
   return (
     <Foot>
-      <Wrap>
-        <img src="/assets/shared/desktop/logo.svg" alt="" />
-        <Nav>
-          <NavList>
-            <Link to="/">
-              <li>HOME</li>
-            </Link>
+      <div className="subfoo">
+        <Wrap>
+          <img src="/assets/shared/desktop/logo.svg" alt="" />
+          <Nav>
+            <NavList>
+              <Link to="/">
+                <li>HOME</li>
+              </Link>
 
-            <Link to="/Headphones">
-              <li>HEADPHONES</li>
-            </Link>
-            <Link to="/Speakers">
-              <li>SPEAKERS</li>
-            </Link>
-            <Link to="/Earphones">
-              <li>EARPHONES</li>
-            </Link>
-          </NavList>
-        </Nav>
-      </Wrap>
-      <WrapDesc>
-        <p>
-          Audiophile is an all in one stop to fulfill your audio needs. We're a
-          small team of music lovers and sound specialists who are devoted to
-          helping you get the most out of personal audio. Come and visit our
-          demo facility - we’re open 7 days a week.
-        </p>
-        <div className="Icons">
-          <img src="/assets/shared/desktop/icon-facebook.svg" alt="" />
-          <img src="/assets/shared/desktop/icon-twitter.svg" alt="" />
-          <img src="/assets/shared/desktop/icon-instagram.svg" alt="" />
-        </div>
-      </WrapDesc>
-      <Section>
-        <p>Copyright 2021. All Rights Reserved</p>
-        <div className="Icons">
-          <img src="/assets/shared/desktop/icon-facebook.svg" alt="" />
-          <img src="/assets/shared/desktop/icon-twitter.svg" alt="" />
-          <img src="/assets/shared/desktop/icon-instagram.svg" alt="" />
-        </div>
-      </Section>
+              <Link to="/Headphones">
+                <li>HEADPHONES</li>
+              </Link>
+              <Link to="/Speakers">
+                <li>SPEAKERS</li>
+              </Link>
+              <Link to="/Earphones">
+                <li>EARPHONES</li>
+              </Link>
+            </NavList>
+          </Nav>
+        </Wrap>
+        <WrapDesc>
+          <p>
+            Audiophile is an all in one stop to fulfill your audio needs. We're
+            a small team of music lovers and sound specialists who are devoted
+            to helping you get the most out of personal audio. Come and visit
+            our demo facility - we’re open 7 days a week.
+          </p>
+          <div className="Icons">
+            <img src="/assets/shared/desktop/icon-facebook.svg" alt="" />
+            <img src="/assets/shared/desktop/icon-twitter.svg" alt="" />
+            <img src="/assets/shared/desktop/icon-instagram.svg" alt="" />
+          </div>
+        </WrapDesc>
+        <Section>
+          <p>Copyright 2021. All Rights Reserved</p>
+          <div className="Icons">
+            <img src="/assets/shared/desktop/icon-facebook.svg" alt="" />
+            <img src="/assets/shared/desktop/icon-twitter.svg" alt="" />
+            <img src="/assets/shared/desktop/icon-instagram.svg" alt="" />
+          </div>
+        </Section>
+      </div>
     </Foot>
   );
 }
@@ -117,11 +119,13 @@ const Foot = styled.footer`
     /* display: unset; */
     align-items: flex-start;
     text-align: start;
-    padding: 6rem 3.9rem 5.8rem;
+    padding: 3.9rem;
   }
   @media screen and (min-width: 900px) {
-    /* display: unset; */
-    padding: 7.5rem 16.9rem 4.8rem;
+    .subfoo {
+      max-width: 100.5rem;
+      margin: 0 auto;
+    }
   }
 `;
 

@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 1.5rem 3.1rem;
     border: none;
     cursor: pointer;
-
+    max-width: 50%;
     &:hover {
       background-color: #fbaf85;
     }
@@ -37,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 500;
     line-height: 25px;
     opacity: 0.5;
+
   }
   .Title{
   color: #000;
@@ -45,15 +46,16 @@ const GlobalStyle = createGlobalStyle`
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
+  @media screen and (min-width: 700px) {
+   max-width: 50%;
+   margin:0 auto;
+  }
   }
   .News{
     color: #D87D4A;
 text-align: center;
-font-family: Manrope;
 font-size: 14px;
-font-style: normal;
 font-weight: 400;
-line-height: normal;
 letter-spacing: 10px;
 text-transform: uppercase;
   }

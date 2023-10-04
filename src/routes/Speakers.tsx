@@ -9,7 +9,14 @@ export default function Speakers() {
           item.category === "speakers" && (
             <Wrapper key={item.id}>
               <Card>
-                <Image src={item.categoryImage.mobile} alt="" />
+                <Image
+                  src={
+                    window.innerWidth >= 700
+                      ? item.categoryImage.tablet
+                      : item.categoryImage.mobile
+                  }
+                  alt=""
+                />
               </Card>
               {item.new && <p className="News">NEW PRODUCT</p>}
               <h3 className="Title">{item.name}</h3>

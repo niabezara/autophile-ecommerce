@@ -5,16 +5,27 @@ export default function Headphones() {
   return (
     <Container>
       {Products.map(
-        (item) =>
+        (item, index) =>
           item.category === "headphones" && (
-            <Wrapper key={item.id}>
+            <Wrapper key={item.id} index={index}>
               <Card>
-                <Image src={item.categoryImage.mobile} alt="" />
+                <Image
+                  src={
+                    window.innerWidth >= 900
+                      ? item.categoryImage.desktop
+                      : window.innerWidth >= 700
+                      ? item.categoryImage.tablet
+                      : item.categoryImage.mobile
+                  }
+                  alt=""
+                />
               </Card>
-              {item.new && <p className="News">NEW PRODUCT</p>}
-              <h3 className="Title">{item.name}</h3>
-              <p className="ProductDescription">{item.description}</p>
-              <button className="GlobalButton">See Product</button>
+              <div className="Info">
+                {item.new && <p className="News">NEW PRODUCT</p>}
+                <h3 className="Title">{item.name}</h3>
+                <p className="ProductDescription">{item.description}</p>
+                <button className="GlobalButton">See Product</button>
+              </div>
             </Wrapper>
           )
       )}
@@ -24,7 +35,15 @@ export default function Headphones() {
 const Container = styled.main`
   display: flex;
   flex-direction: column-reverse;
+  justify-content: center;
   padding: 2.4rem;
+  @media screen and (min-width: 700px) {
+    padding: 3.9rem;
+  }
+  @media screen and (min-width: 900px) {
+    max-width: 100.5rem;
+    margin: 0 auto;
+  }
 `;
 
 const Card = styled.div`
@@ -37,10 +56,25 @@ const Image = styled.img`
   height: 100%;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ index: number }>`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2.4rem;
+  .Info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3.2rem;
+    align-items: center;
+  }
+  @media screen and (min-width: 700px) {
+    .Info {
+    }
+  }
+  @media screen and (min-width: 900px) {
+    flex-direction: ${(props) =>
+      props.index % 2 === 0 ? "row-reverse" : "row"};
+  }
 `;
