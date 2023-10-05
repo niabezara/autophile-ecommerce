@@ -5,8 +5,9 @@ export default function Categories() {
   return (
     <Container>
       <Ul>
+        {/* Headphones */}
         <li>
-          <Link to="" style={{ textDecoration: "inherit" }}>
+          <Link to="/Headphones" style={{ textDecoration: "inherit" }}>
             <div className="box">
               <img
                 className="mainimg"
@@ -25,8 +26,9 @@ export default function Categories() {
             </div>
           </Link>
         </li>
+        {/* Speakers */}
         <li>
-          <Link to="" style={{ textDecoration: "inherit" }}>
+          <Link to="/Speakers" style={{ textDecoration: "inherit" }}>
             <div className="box">
               <img
                 className="mainimg"
@@ -45,8 +47,9 @@ export default function Categories() {
             </div>
           </Link>
         </li>
+        {/* Earphones */}
         <li>
-          <Link to="" style={{ textDecoration: "inherit" }}>
+          <Link to="/Earphones" style={{ textDecoration: "inherit" }}>
             <div className="box">
               <img
                 className="mainimg"

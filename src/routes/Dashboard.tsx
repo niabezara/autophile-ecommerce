@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Categories from "../components/Categories";
 import SecondCategory from "../components/SecondCategory";
 import Info from "../components/Info";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   return (
@@ -14,7 +16,14 @@ export default function Dashboard() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </Desc>
-          <button className="GlobalButton">See Product</button>
+          <Link to="/Headphones">
+            <motion.button
+              whileHover={{ scale: 1.1, opacity: 1 }}
+              className="GlobalButton"
+            >
+              See Product
+            </motion.button>
+          </Link>
         </div>
       </Conatiner>
       <Categories />

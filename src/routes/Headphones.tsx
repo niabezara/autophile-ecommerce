@@ -80,6 +80,9 @@ const Card = styled.div`
   border-radius: 8px;
   background-color: #f1f1f1;
   margin-top: 4rem;
+  @media screen and (min-width: 900px) {
+    margin-top: unset;
+  }
 `;
 const Image = styled.img`
   width: 100%;

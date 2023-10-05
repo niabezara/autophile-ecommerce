@@ -15,19 +15,30 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
    
   }
+  ::-webkit-scrollbar{
+    width:10px;
+  }
+::-webkit-scrollbar-track{
+  background: #000;
+}
 
+::-webkit-scrollbar-thumb{
+  background: #fbaf85;
+  border-radius: 50%;
+}
 
   .GlobalButton {
     background-color: #d87d4a;
     color: #fff;
     font-size: 13px;
     font-weight: 700;
+    width: fit-content;
     letter-spacing: 1px;
     text-transform: uppercase;
-    padding: 1.5rem 3.1rem;
+    padding: 0 1.875rem;
     border: none;
     cursor: pointer;
-    max-width: 50%;
+   height:5rem;
     &:hover {
       background-color: #fbaf85;
     }
