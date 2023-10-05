@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Categories from "../components/Categories";
 import SecondCategory from "../components/SecondCategory";
+import Info from "../components/Info";
 
 export default function Dashboard() {
   return (
@@ -18,6 +19,7 @@ export default function Dashboard() {
       </Conatiner>
       <Categories />
       <SecondCategory />
+      <Info />
     </main>
   );
 }
