@@ -60,7 +60,12 @@ const Wrap = styled.div`
   img {
     width: 14.3rem;
   }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 900px) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -102,7 +107,7 @@ const Foot = styled.footer`
     line-height: 25px;
     opacity: 0.5;
     text-align: center;
-    @media screen and (min-width: 700px) {
+    @media screen and (min-width: 500px) {
       align-items: flex-start;
       text-align: start;
     }
@@ -115,7 +120,7 @@ const Foot = styled.footer`
     height: 4px;
     background: #d87d4a;
   }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 500px) {
     /* display: unset; */
     align-items: flex-start;
     text-align: start;
@@ -150,7 +155,7 @@ const NavList = styled.ul`
       color: #d87d4a;
     }
   }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 500px) {
     display: flex;
     flex-direction: row;
   }
@@ -171,7 +176,7 @@ const Section = styled.section`
       fill: #d87d4a;
     }
   }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 500px) {
     display: flex;
 
     justify-content: space-between;

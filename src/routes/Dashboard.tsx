@@ -1,22 +1,26 @@
 import styled from "styled-components";
+import Categories from "../components/Categories";
 
 export default function Dashboard() {
   return (
-    <Conatiner>
-      <div className="subCont">
-        <New>NEW PRODUCT</New>
-        <Title>XX99 Mark II HeadphoneS</Title>
-        <Desc>
-          Experience natural, lifelike audio and exceptional build quality made
-          for the passionate music enthusiast.
-        </Desc>
-        <button className="GlobalButton">See Product</button>
-      </div>
-    </Conatiner>
+    <main>
+      <Conatiner>
+        <div className="subCont">
+          <New>NEW PRODUCT</New>
+          <Title>XX99 Mark II HeadphoneS</Title>
+          <Desc>
+            Experience natural, lifelike audio and exceptional build quality
+            made for the passionate music enthusiast.
+          </Desc>
+          <button className="GlobalButton">See Product</button>
+        </div>
+      </Conatiner>
+      <Categories />
+    </main>
   );
 }
 
-const Conatiner = styled.main`
+const Conatiner = styled.div`
   width: 100%;
   padding: 2.3rem;
   position: relative;
@@ -24,7 +28,7 @@ const Conatiner = styled.main`
     100% 100% no-repeat;
   opacity: 1.5021;
   background-position: center;
-  filter: brightness(0.6);
+  /* filter: brightness(0.6); */
   background-size: cover;
   background-color: black;
 
@@ -36,7 +40,7 @@ const Conatiner = styled.main`
     flex-direction: column;
     justify-content: center;
   }
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 500px) {
     background: url("./assets/home/tablet/image-header.jpg") lightgray 0px 0px /
       100% 100% no-repeat;
     padding: 3.9rem;
@@ -74,7 +78,7 @@ const Title = styled.h1`
   letter-spacing: 1.286px;
   text-transform: uppercase;
   margin-bottom: 0.8rem;
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 500px) {
     max-width: 39.6rem;
   }
   @media screen and (min-width: 900px) {
@@ -92,7 +96,7 @@ const Desc = styled.p`
   line-height: 25px;
   opacity: 0.75;
   margin-bottom: 1.2rem;
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 500px) {
     max-width: 39.6rem;
   }
   @media screen and (min-width: 900px) {

@@ -43,7 +43,7 @@ const SubContainer = styled.div`
   justify-content: center;
   padding: 2.4rem;
 
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 500px) {
     padding: 3.9rem;
   }
   @media screen and (min-width: 900px) {

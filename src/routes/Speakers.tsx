@@ -17,7 +17,7 @@ export default function Speakers() {
                     src={
                       window.innerWidth >= 900
                         ? item.categoryImage.desktop
-                        : window.innerWidth >= 700
+                        : window.innerWidth >= 500
                         ? item.categoryImage.tablet
                         : item.categoryImage.mobile
                     }
@@ -43,7 +43,7 @@ const SubContainer = styled.div`
   justify-content: center;
   padding: 2.4rem;
 
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 500px) {
     padding: 3.9rem;
   }
   @media screen and (min-width: 900px) {
