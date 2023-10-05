@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function SecondCategory() {
@@ -23,20 +24,46 @@ export default function SecondCategory() {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <button>See Product</button>
+          <Link to="/Speakers">
+            <motion.button
+              whileHover={{ scale: 1.1, backgroundColor: "#4C4C4C" }}
+            >
+              See Product
+            </motion.button>
+          </Link>
         </Section>
       </Card>
       <Zx7Card>
         <section>
           <h1>ZX9 SPEAKER</h1>
-          <ProductButton>See Product</ProductButton>
+          <Link to="Speakers" style={{ textDecoration: "none" }}>
+            <ProductButton
+              whileHover={{
+                scale: 1.1,
+                backgroundColor: "#000",
+                color: "white",
+              }}
+            >
+              See Product
+            </ProductButton>
+          </Link>
         </section>
       </Zx7Card>
       <YxCard>
         <Eaphonesimg src="/assets/home/mobile/image-earphones-yx1.jpg" alt="" />
         <div>
           <h1>YX1 EARPHONES</h1>
-          <ProductButton>See Product</ProductButton>
+          <Link to="Earphones" style={{ textDecoration: "none" }}>
+            <ProductButton
+              whileHover={{
+                scale: 1.1,
+                backgroundColor: "#000",
+                color: "white",
+              }}
+            >
+              See Product
+            </ProductButton>
+          </Link>
         </div>
       </YxCard>
     </Container>
@@ -134,6 +161,7 @@ const Image = styled.img`
 const Section = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2.4rem;
   @media screen and (min-width: 500px) {
     width: 21.8125rem;
@@ -181,7 +209,7 @@ const Zx7Card = styled.div`
     }
   }
 `;
-const ProductButton = styled.button`
+const ProductButton = styled(motion.button)`
   height: 3rem;
   display: flex;
   width: fit-content;
@@ -190,7 +218,7 @@ const ProductButton = styled.button`
   align-items: center;
   font-weight: 700;
   padding: 0 1.875rem;
-  border: 2px solid;
+  border: 1px solid #000;
 `;
 const Eaphonesimg = styled.img`
   width: 100%;
