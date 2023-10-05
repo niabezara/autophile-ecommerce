@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Categories from "../components/Categories";
+import SecondCategory from "../components/SecondCategory";
 
 export default function Dashboard() {
   return (
@@ -16,13 +17,14 @@ export default function Dashboard() {
         </div>
       </Conatiner>
       <Categories />
+      <SecondCategory />
     </main>
   );
 }
 
 const Conatiner = styled.div`
   width: 100%;
-  padding: 2.3rem;
+  padding: 0 2.3rem;
   position: relative;
   background: url("./assets/home/mobile/image-header.jpg") lightgray 0px 0px /
     100% 100% no-repeat;
