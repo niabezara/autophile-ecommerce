@@ -43,13 +43,13 @@ const Conatiner = styled.div`
   @media screen and (min-width: 500px) {
     background: url("./assets/home/tablet/image-header.jpg") lightgray 0px 0px /
       100% 100% no-repeat;
-    padding: 3.9rem;
+    padding: 0 3.9rem;
   }
   @media screen and (min-width: 900px) {
     background: url("./assets/home/desktop/image-hero.jpg") lightgray 0px 0px /
       100% 100% no-repeat;
     align-items: flex-start;
-    padding: 3.9rem;
+    padding: 0 3.9rem;
     /* padding: 0 16.5rem; */
     gap: 2.4rem;
     .subCont {

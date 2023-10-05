@@ -73,8 +73,16 @@ export default function Categories() {
 const Container = styled.div`
   background-color: white;
   width: 100%;
-  max-width: 72.375rem;
+  max-width: 100.5rem;
   padding: 0 2.4rem 2.4rem;
+  @media screen and (min-width: 500px) {
+    padding: 0 3.9rem 3.9rem;
+  }
+  @media screen and (min-width: 900px) {
+    margin: 0 auto;
+    padding: 0 3.9rem;
+    margin-bottom: 3.9rem;
+  }
 `;
 
 const Ul = styled.ul`
@@ -129,5 +137,12 @@ const Ul = styled.ul`
     letter-spacing: 1px;
     text-transform: uppercase;
     opacity: 0.5;
+  }
+
+  @media screen and (min-width: 500px) {
+    flex-direction: row;
+    .mainimg {
+      width: 11.625rem;
+    }
   }
 `;

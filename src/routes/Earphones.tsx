@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Products from "../data/data.json";
+import Categories from "../components/Categories";
 
 export default function Earphones() {
   return (
@@ -34,6 +35,7 @@ export default function Earphones() {
             )
         )}
       </SubContainer>
+      <Categories />
     </Container>
   );
 }
