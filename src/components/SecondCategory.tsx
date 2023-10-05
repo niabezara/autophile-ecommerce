@@ -5,7 +5,16 @@ export default function SecondCategory() {
     <Container>
       <Card>
         <div style={{ width: "fit-content", margin: "0 auto" }}>
-          <Image src="/assets/home/mobile/image-speaker-zx9.png" alt="" />
+          <Image
+            src={
+              window.innerWidth >= 900
+                ? "/assets/home/desktop/image-speaker-zx9.png"
+                : window.innerWidth >= 500
+                ? "/assets/home/tablet/image-speaker-zx9.png"
+                : "/assets/home/mobile/image-speaker-zx9.png"
+            }
+            alt=""
+          />
         </div>
         <Section>
           <h1>ZX9 SPEAKER</h1>
@@ -17,10 +26,10 @@ export default function SecondCategory() {
         </Section>
       </Card>
       <Zx7Card>
-        <Section>
+        <section>
           <h1>ZX9 SPEAKER</h1>
           <ProductButton>See Product</ProductButton>
-        </Section>
+        </section>
       </Zx7Card>
       <YxCard>
         <Eaphonesimg src="/assets/home/mobile/image-earphones-yx1.jpg" alt="" />
@@ -43,11 +52,12 @@ const Container = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   @media screen and (min-width: 500px) {
-    padding: 0 3.9rem 3.9rem;
+    /* padding: 0 3.9rem 3.9rem; */
   }
   @media screen and (min-width: 900px) {
     margin: 0 auto;
     padding: 0 3.9rem;
+
     margin-bottom: 3.9rem;
   }
 `;
@@ -90,16 +100,52 @@ const Card = styled.div`
     border: none;
     cursor: pointer;
   }
+
+  @media screen and (min-width: 500px) {
+    background-size: 50rem;
+    background-position: center -131px;
+    padding: 3.25rem 1.5rem 4rem;
+  }
+
+  @media screen and (min-width: 900px) {
+    height: 50rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 8.625rem;
+    place-items: center;
+    background-position: -90px -50px;
+    padding: 0 5.9375rem;
+    background-size: auto;
+  }
 `;
 
 const Image = styled.img`
   margin-bottom: 2rem;
   width: 10.765625rem;
+  @media screen and (min-width: 500px) {
+    width: 14.8125rem;
+  }
+  @media screen and (min-width: 900px) {
+    margin: auto 0;
+    width: 100%;
+  }
 `;
 const Section = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+  @media screen and (min-width: 500px) {
+    width: 21.8125rem;
+    margin: 0 auto;
+  }
+  @media screen and (min-width: 900px) {
+    align-items: flex-start;
+
+    margin: 0 auto;
+    h1 {
+      text-align: unset;
+    }
+  }
 `;
 const Zx7Card = styled.div`
   background-image: url("/assets/home/mobile/image-speaker-zx7.jpg");
@@ -111,13 +157,35 @@ const Zx7Card = styled.div`
   gap: 2rem;
   padding: 6.3125rem 1.5rem;
   border-radius: 0.5rem;
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+  @media screen and (min-width: 500px) {
+    background-image: url("/assets/home/tablet/image-speaker-zx7.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    section {
+      padding-left: 3.875rem;
+      font-size: 28px;
+    }
+  }
+  @media screen and (min-width: 900px) {
+    background-image: url("/assets/home/desktop/image-speaker-zx7.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    section {
+      padding-left: 5.9375rem;
+    }
+  }
 `;
 const ProductButton = styled.button`
   height: 3rem;
   display: flex;
   width: fit-content;
   text-transform: uppercase;
-  font-size: 0.8125rem;
+  font-size: 13px;
   align-items: center;
   font-weight: 700;
   padding: 0 1.875rem;
@@ -125,8 +193,12 @@ const ProductButton = styled.button`
 `;
 const Eaphonesimg = styled.img`
   width: 100%;
+  height: 100%;
   border-radius: 0.5rem;
   margin-bottom: 1.5rem;
+  @media screen and (min-width: 500px) {
+    margin-bottom: unset;
+  }
 `;
 const YxCard = styled.div`
   width: 100%;
@@ -136,9 +208,14 @@ const YxCard = styled.div`
     border-radius: 0.5rem;
     padding: 2.5625rem 1.5rem;
     h1 {
-      font-size: 1.75rem;
+      font-size: 28px;
       text-transform: uppercase;
       margin-bottom: 2rem;
     }
+  }
+  @media screen and (min-width: 500px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.5rem;
   }
 `;

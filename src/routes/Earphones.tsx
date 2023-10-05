@@ -18,7 +18,7 @@ export default function Earphones() {
                     src={
                       window.innerWidth >= 900
                         ? item.categoryImage.desktop
-                        : window.innerWidth >= 700
+                        : window.innerWidth >= 500
                         ? item.categoryImage.tablet
                         : item.categoryImage.mobile
                     }
