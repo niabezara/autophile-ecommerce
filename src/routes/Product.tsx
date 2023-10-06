@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import ProductData from "../data/data.json";
 import styled from "styled-components";
+import { useState } from "react";
 
 export default function Product() {
   const { id } = useParams<{ id: string }>();
@@ -8,6 +9,19 @@ export default function Product() {
 
   const product = ProductData.find((item) => item.id === productId);
   const navigate = useNavigate();
+
+  const [quantity, setQuantity] = useState(0);
+
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decreaseQuantity = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   if (!product) {
     return <div>Product not found</div>;
   }
@@ -26,11 +40,17 @@ export default function Product() {
             {product.new && <p className="News">NEW PRODUCT</p>}
             <h3 className="Title">{product.name}</h3>
             <p className="ProductDescription">{product.description}</p>
-            <p>${product.price}</p>
-            <div>
-              <input type="number" name="" id="" />
+            <p className="price">${product.price}</p>
+            <Btns>
+              <div className="addingitems">
+                <button className="minusbtn" onClick={() => decreaseQuantity()}>
+                  -
+                </button>
+                <button>{quantity}</button>
+                <button onClick={() => increaseQuantity()}>+</button>
+              </div>
               <button className="GlobalButton">ADD TO CART</button>
-            </div>
+            </Btns>
           </div>
         </Wrapper>
       </SubContainer>
@@ -96,7 +116,15 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 3.2rem;
-    align-items: center;
+    align-items: flex-start;
+    .ProductDescription {
+      text-align: left;
+    }
+    .price {
+      font-size: 18px;
+      font-weight: 700;
+      padding: 1.5rem 0 1.9375rem;
+    }
   }
 
   @media screen and (min-width: 900px) {
@@ -111,6 +139,25 @@ const Wrapper = styled.div`
       .ProductDescription {
         text-align: left;
       }
+    }
+  }
+`;
+const Btns = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  .addingitems {
+    background-color: #f1f1f1;
+    width: 7.5rem;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.9375rem;
+    font-weight: 700;
+    .minusbtn {
+      display: flex;
+      width: 1rem;
+      height: 1.125rem;
     }
   }
 `;
