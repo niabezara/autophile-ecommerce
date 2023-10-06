@@ -34,7 +34,16 @@ export default function Product() {
         </button>
         <Wrapper>
           <Card>
-            <Image src={product.categoryImage.mobile} alt="single-product" />
+            <Image
+              src={
+                window.innerWidth >= 900
+                  ? product.image.desktop
+                  : window.innerWidth >= 500
+                  ? product.image.tablet
+                  : product.image.mobile
+              }
+              alt="single-product"
+            />
           </Card>
           <div className="Info">
             {product.new && <p className="News">NEW PRODUCT</p>}
@@ -95,7 +104,16 @@ export default function Product() {
         </section>
         <Gallery>
           <div>
-            <img src={product.gallery.first.mobile} alt="" />
+            <img
+              src={
+                window.innerWidth >= 900
+                  ? product.gallery.first.desktop
+                  : window.innerWidth >= 500
+                  ? product.gallery.first.tablet
+                  : product.gallery.first.mobile
+              }
+              alt=""
+            />
             <img src={product.gallery.second.mobile} alt="" />
           </div>
           <img src={product.gallery.third.mobile} alt="" />
@@ -150,6 +168,10 @@ const Card = styled.div`
 const Image = styled.img`
   width: 100%;
   height: 100%;
+  @media screen and (min-width: 500px) {
+    width: 22.5625rem;
+    height: 48rem;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -172,6 +194,17 @@ const Wrapper = styled.div`
       font-size: 18px;
       font-weight: 700;
       padding: 1.5rem 0 1.9375rem;
+    }
+  }
+  @media screen and (min-width: 500px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 6rem;
+    .Info {
+      align-items: flex-start;
+      .Title {
+        text-align: left;
+      }
     }
   }
 
