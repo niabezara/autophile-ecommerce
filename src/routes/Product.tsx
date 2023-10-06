@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ProductData from "../data/data.json";
 import styled from "styled-components";
 
@@ -7,15 +7,17 @@ export default function Product() {
   const productId: number | undefined = id ? parseInt(id, 10) : undefined;
 
   const product = ProductData.find((item) => item.id === productId);
-
+  const navigate = useNavigate();
   if (!product) {
     return <div>Product not found</div>;
   }
 
   return (
     <Container>
-      <p>Go Back</p>
       <SubContainer>
+        <button className="Back" onClick={() => navigate(-1)}>
+          Go Back
+        </button>
         <Wrapper>
           <Card>
             <Image src={product.categoryImage.mobile} alt="single-product" />
@@ -41,13 +43,26 @@ const Container = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media screen and (min-width: 900px) {
+    padding: 9.7rem;
+  }
 `;
 const SubContainer = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   padding: 2.4rem;
-
+  .Back {
+    border: none;
+    background: transparent;
+    color: #000;
+    opacity: 0.5;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 25px;
+  }
   @media screen and (min-width: 500px) {
     padding: 3.9rem;
   }
@@ -56,11 +71,10 @@ const SubContainer = styled.div`
     margin: 0 auto;
   }
 `;
-
 const Card = styled.div`
   border-radius: 8px;
   background-color: #f1f1f1;
-  margin-top: 4rem;
+
   @media screen and (min-width: 900px) {
     margin-top: unset;
   }
@@ -76,6 +90,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 2.4rem;
+  margin-top: 2rem;
   .Info {
     display: flex;
     flex-direction: column;
