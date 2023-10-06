@@ -63,6 +63,43 @@ export default function Product() {
             </Btns>
           </div>
         </Wrapper>
+        <section>
+          <div>
+            <h2 style={{ fontWeight: "700", fontSize: "24px" }}>FEATURES</h2>
+            <p
+              style={{ fontSize: "15px", opacity: "0.5", marginTop: "2.4rem" }}
+            >
+              {product.features}
+            </p>
+          </div>
+        </section>
+        <section>
+          <div>
+            <h2
+              style={{
+                fontWeight: "700",
+                fontSize: "24px",
+                textTransform: "uppercase",
+                marginBottom: "2.4rem",
+              }}
+            >
+              in the box
+            </h2>
+            {product.includes.map((include, index) => (
+              <Article key={index}>
+                <p className="quantity">{include.quantity}X</p>
+                <p className="item">{include.item}</p>
+              </Article>
+            ))}
+          </div>
+        </section>
+        <Gallery>
+          <div>
+            <img src={product.gallery.first.mobile} alt="" />
+            <img src={product.gallery.second.mobile} alt="" />
+          </div>
+          <img src={product.gallery.third.mobile} alt="" />
+        </Gallery>
       </SubContainer>
     </Container>
   );
@@ -83,6 +120,7 @@ const SubContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  gap: 8rem;
   padding: 2.4rem;
   .Back {
     border: none;
@@ -120,7 +158,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 2.4rem;
-  margin-top: 2rem;
+
   .Info {
     display: flex;
     flex-direction: column;
@@ -171,5 +209,30 @@ const Btns = styled.div`
       width: 1rem;
       height: 1.125rem;
     }
+  }
+`;
+
+const Article = styled.article`
+  display: flex;
+  gap: 2.4rem;
+  .quantity {
+    color: #d87d4a;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 25px;
+  }
+  .item {
+    color: #000;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 25px;
+    opacity: 0.5;
+  }
+`;
+const Gallery = styled.section`
+  img {
+    width: 100%;
+    margin-bottom: 1.25rem;
+    border-radius: 0.5rem;
   }
 `;
