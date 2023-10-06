@@ -16,7 +16,7 @@ export default function Dashboard() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </Desc>
-          <Link to="/Headphones">
+          <Link to={`/product/Headphones/3`}>
             <motion.button
               whileHover={{ scale: 1.1, opacity: 1 }}
               className="GlobalButton"

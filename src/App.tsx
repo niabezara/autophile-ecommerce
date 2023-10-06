@@ -8,6 +8,7 @@ import Headphones from "./routes/Headphones";
 import Speakers from "./routes/Speakers";
 import Earphones from "./routes/Earphones";
 import Footer from "./components/Footer";
+import Product from "./routes/Product";
 
 function App() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -37,6 +38,7 @@ function App() {
         <Route path="/Headphones" element={<Headphones />} />
         <Route path="/Speakers" element={<Speakers />} />
         <Route path="/Earphones" element={<Earphones />} />
+        <Route path="/product/:type/:id" element={<Product />} />
       </Routes>
       <Footer />
     </>
