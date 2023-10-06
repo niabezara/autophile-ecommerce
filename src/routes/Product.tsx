@@ -9,7 +9,7 @@ export default function Product() {
 
   const product = ProductData.find((item) => item.id === productId);
   const navigate = useNavigate();
-
+  const Price = product?.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   const [quantity, setQuantity] = useState(0);
 
   const increaseQuantity = () => {
@@ -40,14 +40,24 @@ export default function Product() {
             {product.new && <p className="News">NEW PRODUCT</p>}
             <h3 className="Title">{product.name}</h3>
             <p className="ProductDescription">{product.description}</p>
-            <p className="price">${product.price}</p>
+            <p className="price">${Price}</p>
             <Btns>
               <div className="addingitems">
-                <button className="minusbtn" onClick={() => decreaseQuantity()}>
+                <button
+                  className="incrementdicrementbtn"
+                  onClick={() => decreaseQuantity()}
+                >
                   -
                 </button>
-                <button>{quantity}</button>
-                <button onClick={() => increaseQuantity()}>+</button>
+                <button style={{ border: "none", fontWeight: "700" }}>
+                  {quantity}
+                </button>
+                <button
+                  className="incrementdicrementbtn"
+                  onClick={() => increaseQuantity()}
+                >
+                  +
+                </button>
               </div>
               <button className="GlobalButton">ADD TO CART</button>
             </Btns>
@@ -148,14 +158,16 @@ const Btns = styled.div`
   .addingitems {
     background-color: #f1f1f1;
     width: 7.5rem;
-    height: 3rem;
+    height: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 0.9375rem;
     font-weight: 700;
-    .minusbtn {
+    .incrementdicrementbtn {
       display: flex;
+      border: none;
+      opacity: 0.25;
       width: 1rem;
       height: 1.125rem;
     }
