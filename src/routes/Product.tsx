@@ -3,7 +3,7 @@ import ProductData from "../data/data.json";
 import styled from "styled-components";
 
 export default function Product() {
-  const { id, type } = useParams<{ id: string; type: string }>();
+  const { id } = useParams<{ id: string }>();
   const productId: number | undefined = id ? parseInt(id, 10) : undefined;
 
   const product = ProductData.find((item) => item.id === productId);
@@ -18,7 +18,7 @@ export default function Product() {
       <SubContainer>
         <Wrapper>
           <Card>
-            <Image src={product.categoryImage.mobile} alt="" />
+            <Image src={product.categoryImage.mobile} alt="single-product" />
           </Card>
           <div className="Info">
             {product.new && <p className="News">NEW PRODUCT</p>}
@@ -66,8 +66,8 @@ const Card = styled.div`
   }
 `;
 const Image = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
 `;
 
 const Wrapper = styled.div`
