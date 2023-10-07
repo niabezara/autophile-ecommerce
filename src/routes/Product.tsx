@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import ProductData from "../data/data.json";
 import styled from "styled-components";
 import { useState } from "react";
+import SimilarProducts from "../components/SimilarProducts";
 
 export default function Product() {
   const { id } = useParams<{ id: string }>();
@@ -83,7 +84,7 @@ export default function Product() {
           </div>
         </section>
         <section>
-          <div>
+          <BoxSection>
             <h2
               style={{
                 fontWeight: "700",
@@ -94,16 +95,25 @@ export default function Product() {
             >
               in the box
             </h2>
-            {product.includes.map((include, index) => (
-              <Article key={index}>
-                <p className="quantity">{include.quantity}X</p>
-                <p className="item">{include.item}</p>
-              </Article>
-            ))}
-          </div>
+            <div>
+              {product.includes.map((include, index) => (
+                <Article key={index}>
+                  <p className="quantity">{include.quantity}X</p>
+                  <p className="item">{include.item}</p>
+                </Article>
+              ))}
+            </div>
+          </BoxSection>
         </section>
         <Gallery>
-          <div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              height: "100%",
+            }}
+          >
             <img
               src={
                 window.innerWidth >= 900
@@ -118,6 +128,7 @@ export default function Product() {
           </div>
           <img src={product.gallery.third.mobile} alt="" />
         </Gallery>
+        <SimilarProducts products={ProductData} currentProductId={product.id} />
       </SubContainer>
     </Container>
   );
@@ -263,9 +274,29 @@ const Article = styled.article`
   }
 `;
 const Gallery = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
   img {
     width: 100%;
+    height: 100%;
     margin-bottom: 1.25rem;
     border-radius: 0.5rem;
+  }
+  @media screen and (min-width: 500px) {
+    display: grid;
+    grid-template-columns: 1fr 1.45fr;
+    column-gap: 1.875rem;
+    place-items: center;
+  }
+`;
+
+const BoxSection = styled.div`
+  @media screen and (min-width: 500px) {
+    display: flex;
+    flex-direction: row;
+    gap: 10.1875rem;
   }
 `;
