@@ -128,7 +128,7 @@ export default function Product() {
           </div>
           <img src={product.gallery.third.mobile} alt="" />
         </Gallery>
-        <SimilarProducts products={ProductData} currentProductId={product.id} />
+        <SimilarProducts />
       </SubContainer>
     </Container>
   );
@@ -181,6 +181,10 @@ const Image = styled.img`
   height: 100%;
   @media screen and (min-width: 500px) {
     width: 22.5625rem;
+    height: 48rem;
+  }
+  @media screen and (min-width: 900px) {
+    width: 45rem;
     height: 48rem;
   }
 `;

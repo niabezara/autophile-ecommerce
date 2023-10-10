@@ -37,10 +37,11 @@ const Conatiner = styled.div`
   width: 100%;
   padding: 0 2.3rem;
   position: relative;
-  background: url("./assets/home/mobile/image-header.jpg") lightgray 0px 0px /
+  background: url("/assets/home/mobile/image-header.jpg") lightgray 0px 0px /
     100% 100% no-repeat;
   opacity: 1.5021;
   background-position: center;
+  gap: 1.5rem;
   /* filter: brightness(0.6); */
   background-size: cover;
   background-color: black;
@@ -54,12 +55,12 @@ const Conatiner = styled.div`
     justify-content: center;
   }
   @media screen and (min-width: 500px) {
-    background: url("./assets/home/tablet/image-header.jpg") lightgray 0px 0px /
+    background: url("/assets/home/tablet/image-header.jpg") lightgray 0px 0px /
       100% 100% no-repeat;
     padding: 0 3.9rem;
   }
   @media screen and (min-width: 900px) {
-    background: url("./assets/home/desktop/image-hero.jpg") lightgray 0px 0px /
+    background: url("/assets/home/desktop/image-hero.jpg") lightgray 0px 0px /
       100% 100% no-repeat;
     align-items: flex-start;
     padding: 0 3.9rem;

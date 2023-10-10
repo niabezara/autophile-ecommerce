@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Products from "../data/data.json";
 import Categories from "../components/Categories";
+import Info from "../components/Info";
 
 export default function Speakers() {
   return (
@@ -36,6 +37,7 @@ export default function Speakers() {
         )}
       </SubContainer>
       <Categories />
+      <Info />
     </Container>
   );
 }
@@ -59,7 +61,7 @@ const Container = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  gap: 4.5rem;
   .heading {
     background-color: black;
     padding: 3.2rem;

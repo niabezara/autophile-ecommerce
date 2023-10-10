@@ -53,12 +53,13 @@ const Container = styled.div`
 
 const Image = styled.img`
   width: 100%;
+  height: 100%;
   border-radius: 0.5rem;
   margin-bottom: 3.2rem;
 `;
 const Card = styled.div`
   width: 100%;
-  max-width: 35.8125rem;
+  max-width: 44.8125rem;
   margin: 0 auto;
   text-align: center;
 
@@ -87,8 +88,14 @@ const Card = styled.div`
     opacity: 0.5;
   }
   @media screen and (min-width: 900px) {
-    max-width: 27.8125rem;
+    max-width: unset;
     grid-column: 1/2;
-    text-align: left;
+
+    p {
+      text-align: left;
+    }
+    h1 {
+      text-align: left;
+    }
   }
 `;

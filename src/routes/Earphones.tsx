@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Products from "../data/data.json";
 import Categories from "../components/Categories";
+import { Link } from "react-router-dom";
+import Info from "../components/Info";
 
 export default function Earphones() {
   return (
@@ -29,13 +31,16 @@ export default function Earphones() {
                   {item.new && <p className="News">NEW PRODUCT</p>}
                   <h3 className="Title">{item.name}</h3>
                   <p className="ProductDescription">{item.description}</p>
-                  <button className="GlobalButton">See Product</button>
+                  <Link to={`/product/Earphones/1`}>
+                    <button className="GlobalButton">See Product</button>
+                  </Link>
                 </div>
               </Wrapper>
             )
         )}
       </SubContainer>
       <Categories />
+      <Info />
     </Container>
   );
 }
@@ -59,6 +64,7 @@ const Container = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 4.5rem;
 
   .heading {
     background-color: black;
