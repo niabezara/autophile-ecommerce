@@ -40,9 +40,9 @@ export default function NavBar({
           setOpenModal={setOpenModal}
         />
       ) : isTablet ? (
-        <TabletVersion />
+        <TabletVersion openModal={openModal} setOpenModal={setOpenModal} />
       ) : (
-        <DesktopVersion />
+        <DesktopVersion openModal={openModal} setOpenModal={setOpenModal} />
       )}
     </header>
   );

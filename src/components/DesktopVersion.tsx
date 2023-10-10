@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Modal from "./modal/ShopModal";
+import ShopList from "./ShopList";
+import { Dispatch, SetStateAction } from "react";
 
-export default function DesktopVersion() {
+export default function DesktopVersion({
+  setOpenModal,
+  openModal,
+}: {
+  openModal: boolean;
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
+}) {
   return (
     <Head>
       <div className="Subheader">
@@ -25,7 +34,15 @@ export default function DesktopVersion() {
             </Link>
           </ul>
         </Nav>
-        <Logo src="/assets/shared/desktop/icon-cart.svg" alt="" />
+        <button
+          onClick={() => setOpenModal((prevOpenModal) => !prevOpenModal)}
+          style={{ background: "transparent", border: "none" }}
+        >
+          <Logo src="/assets/shared/desktop/icon-cart.svg" alt="" />
+        </button>
+        <Modal open={openModal}>
+          <ShopList />
+        </Modal>
       </div>
     </Head>
   );

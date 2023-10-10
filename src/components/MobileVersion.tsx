@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Modal from "./Modals/ShopModal";
+import Modal from "./modal/ShopModal";
 import ShopList from "./ShopList";
 import { Dispatch, SetStateAction } from "react";
 

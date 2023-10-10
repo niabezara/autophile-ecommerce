@@ -3,6 +3,8 @@ import ProductData from "../data/data.json";
 import styled from "styled-components";
 import { useState } from "react";
 import SimilarProducts from "../components/SimilarProducts";
+import Categories from "../components/Categories";
+import Info from "../components/Info";
 
 export default function Product() {
   const { id } = useParams<{ id: string }>();
@@ -129,6 +131,8 @@ export default function Product() {
           <img src={product.gallery.third.mobile} alt="" />
         </Gallery>
         <SimilarProducts />
+        <Categories />
+        <Info />
       </SubContainer>
     </Container>
   );
@@ -141,7 +145,7 @@ const Container = styled.main`
   align-items: center;
 
   @media screen and (min-width: 900px) {
-    padding: 9.7rem;
+    /* padding: 9.7rem; */
   }
 `;
 const SubContainer = styled.div`
