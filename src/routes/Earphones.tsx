@@ -31,7 +31,7 @@ export default function Earphones() {
                   {item.new && <p className="News">NEW PRODUCT</p>}
                   <h3 className="Title">{item.name}</h3>
                   <p className="ProductDescription">{item.description}</p>
-                  <Link to={`/product/Earphones/1`}>
+                  <Link to={`/product/Earphones/${item.id}`}>
                     <button className="GlobalButton">See Product</button>
                   </Link>
                 </div>

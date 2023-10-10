@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Modal from "./Modals/ShopModal";
+import ShopList from "./ShopList";
+import { Dispatch, SetStateAction } from "react";
 
 export default function MobileVersion({
   isNavbarOpen,
   toggleNavbar,
+  setOpenModal,
+  openModal,
 }: {
   isNavbarOpen: boolean;
+  openModal: boolean;
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
   toggleNavbar: () => void;
 }) {
   return (
@@ -34,11 +41,19 @@ export default function MobileVersion({
         </NavList>
       </nav>
       <img src="/assets/shared/desktop/logo.svg" alt="" />
-      <img
-        src="/assets/shared/desktop/icon-cart.svg"
-        alt=""
-        style={{ width: "20px", height: "23px" }}
-      />
+      <button
+        onClick={() => setOpenModal((prevOpenModal) => !prevOpenModal)}
+        style={{ background: "transparent", border: "none" }}
+      >
+        <img
+          src="/assets/shared/desktop/icon-cart.svg"
+          alt=""
+          style={{ width: "20px", height: "23px" }}
+        />
+      </button>
+      <Modal open={openModal}>
+        <ShopList />
+      </Modal>
     </Head>
   );
 }

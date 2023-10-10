@@ -13,6 +13,7 @@ export default function NavBar({
 }) {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isTablet, setIsTablet] = useState<boolean>(false);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,6 +36,8 @@ export default function NavBar({
         <MobileVersion
           isNavbarOpen={isNavbarOpen}
           toggleNavbar={toggleNavbar}
+          openModal={openModal}
+          setOpenModal={setOpenModal}
         />
       ) : isTablet ? (
         <TabletVersion />

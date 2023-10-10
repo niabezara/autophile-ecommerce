@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Products from "../data/data.json";
 import Categories from "../components/Categories";
 import Info from "../components/Info";
+import { Link } from "react-router-dom";
 
 export default function Speakers() {
   return (
@@ -30,7 +31,9 @@ export default function Speakers() {
                   {item.new && <p className="News">NEW PRODUCT</p>}
                   <h3 className="Title">{item.name}</h3>
                   <p className="ProductDescription">{item.description}</p>
-                  <button className="GlobalButton">See Product</button>
+                  <Link to={`/product/Earphones/${item.id}`}>
+                    <button className="GlobalButton">See Product</button>
+                  </Link>
                 </div>
               </Wrapper>
             )
