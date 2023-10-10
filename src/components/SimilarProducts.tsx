@@ -11,28 +11,30 @@ export default function SimilarProducts() {
   return (
     <section>
       <Text>you may also like</Text>
-      <Card>
-        {others.map((product, index) => (
-          <Wrap key={index}>
-            <img
-              key={index}
-              src={
-                window.innerWidth >= 900
-                  ? product.image.desktop
-                  : window.innerWidth >= 500
-                  ? product.image.tablet
-                  : product.image.mobile
-              }
-              alt=""
-            />
+      {ProductData.slice(0, 1).map((items: ProductInterface) => (
+        <Card>
+          {others.map((product, index) => (
+            <Wrap key={index}>
+              <img
+                key={index}
+                src={
+                  window.innerWidth >= 900
+                    ? product.image.desktop
+                    : window.innerWidth >= 500
+                    ? product.image.tablet
+                    : product.image.mobile
+                }
+                alt=""
+              />
 
-            <h3>{product.name}</h3>
-            <Link to="">
-              <button className="GlobalButton">See Product</button>
-            </Link>
-          </Wrap>
-        ))}
-      </Card>
+              <h3>{product.name}</h3>
+              <Link to={`/product/${items.category}/${items.id}`}>
+                <button className="GlobalButton">See Product</button>
+              </Link>
+            </Wrap>
+          ))}
+        </Card>
+      ))}
     </section>
   );
 }
