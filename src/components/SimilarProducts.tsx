@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { ProductInterface } from "../types/types";
 import styled from "styled-components";
 import ProductData from "../data/data.json";
 

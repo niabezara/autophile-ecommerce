@@ -1,14 +1,28 @@
 import styled from "styled-components";
+import { UseShoppingCart } from "../context/CartContext";
+import { useContext } from "react";
 
 export default function ShopList() {
+  const { items } = UseShoppingCart();
+
   return (
-    <Conatiner>
+    <Container>
       <Section>
         <Top>
-          <p>cart (3)</p>
+          <p>cart ({items.length})</p>
           <button>Remove all</button>
         </Top>
-        <Middle>Your Cart is empty</Middle>
+        {items.length === 0 ? (
+          <Middle>Your Cart is empty</Middle>
+        ) : (
+          items.map((item, index) => (
+            <div key={index}>
+              <p>Name: {item.name}</p>
+              <p>Price: {item.price}</p>
+              <p>Category: {item.category}</p>
+            </div>
+          ))
+        )}
         <PriceDiv>
           <p style={{ opacity: "0.5", fontSize: "15px", fontWeight: "500" }}>
             Total
@@ -25,10 +39,10 @@ export default function ShopList() {
         </PriceDiv>
         <Checkout>checkout</Checkout>
       </Section>
-    </Conatiner>
+    </Container>
   );
 }
-const Conatiner = styled.div`
+const Container = styled.div`
   width: 100%;
 
   border-radius: 0.5rem;

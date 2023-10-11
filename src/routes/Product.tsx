@@ -1,29 +1,27 @@
 import { useNavigate, useParams } from "react-router-dom";
 import ProductData from "../data/data.json";
 import styled from "styled-components";
-import { useState } from "react";
+
 import SimilarProducts from "../components/SimilarProducts";
 import Categories from "../components/Categories";
 import Info from "../components/Info";
+import { UseShoppingCart } from "../context/CartContext";
+import { useContext } from "react";
 
 export default function Product() {
   const { slug } = useParams<{ slug: string }>();
   const lowerCaseSlug = slug ? slug.toLowerCase() : "";
-
   const product = ProductData.find((item) => item.slug === lowerCaseSlug);
   const navigate = useNavigate();
   const Price = product?.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  const [quantity, setQuantity] = useState(0);
 
-  const increaseQuantity = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const decreaseQuantity = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-    }
-  };
+  // useContext
+  const {
+    incraseCartQuantity,
+    decreaseCartQuantity,
+    addToCart,
+    getItemQuantitiy,
+  } = UseShoppingCart();
 
   if (!product) {
     return <div>Product not found</div>;
@@ -57,21 +55,26 @@ export default function Product() {
               <div className="addingitems">
                 <button
                   className="incrementdicrementbtn"
-                  onClick={() => decreaseQuantity()}
+                  onClick={() => decreaseCartQuantity(product.id)}
                 >
                   -
                 </button>
                 <button style={{ border: "none", fontWeight: "700" }}>
-                  {quantity}
+                  {""}
                 </button>
                 <button
                   className="incrementdicrementbtn"
-                  onClick={() => increaseQuantity()}
+                  onClick={() => incraseCartQuantity(product.id)}
                 >
                   +
                 </button>
               </div>
-              <button className="GlobalButton">ADD TO CART</button>
+              <button
+                onClick={() => addToCart(product)}
+                className="GlobalButton"
+              >
+                ADD TO CART
+              </button>
             </Btns>
           </div>
         </Wrapper>
