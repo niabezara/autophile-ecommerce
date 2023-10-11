@@ -7,10 +7,10 @@ import Categories from "../components/Categories";
 import Info from "../components/Info";
 
 export default function Product() {
-  const { id } = useParams<{ id: string }>();
-  const productId: number | undefined = id ? parseInt(id, 10) : undefined;
+  const { slug } = useParams<{ slug: string }>();
+  const lowerCaseSlug = slug ? slug.toLowerCase() : "";
 
-  const product = ProductData.find((item) => item.id === productId);
+  const product = ProductData.find((item) => item.slug === lowerCaseSlug);
   const navigate = useNavigate();
   const Price = product?.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   const [quantity, setQuantity] = useState(0);

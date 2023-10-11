@@ -24,7 +24,7 @@ export default function SecondCategory() {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <Link to={`/product/speaker/6`}>
+          <Link to={`/product/zx9-speaker`}>
             <motion.button
               whileHover={{ scale: 1.1, backgroundColor: "#4C4C4C" }}
             >
@@ -36,7 +36,7 @@ export default function SecondCategory() {
       <Zx7Card>
         <section>
           <h1>ZX7 SPEAKER</h1>
-          <Link to={`/product/speaker/5`} style={{ textDecoration: "none" }}>
+          <Link to={`/product/zx7-speaker`} style={{ textDecoration: "none" }}>
             <ProductButton
               whileHover={{
                 scale: 1.1,
@@ -53,7 +53,10 @@ export default function SecondCategory() {
         <Eaphonesimg src="/assets/home/mobile/image-earphones-yx1.jpg" alt="" />
         <div>
           <h1>YX1 EARPHONES</h1>
-          <Link to={`/product/Earphones/1`} style={{ textDecoration: "none" }}>
+          <Link
+            to={`/product/yx1-earphones`}
+            style={{ textDecoration: "none" }}
+          >
             <ProductButton
               whileHover={{
                 scale: 1.1,
