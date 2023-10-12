@@ -19,9 +19,11 @@ export default function Product() {
   const {
     incraseCartQuantity,
     decreaseCartQuantity,
-    addToCart,
-    getItemQuantitiy,
+    // addToCart,
+    getItemQuantity,
   } = UseShoppingCart();
+
+  const quantity = product?.id ? getItemQuantity(product.id) : 0;
 
   if (!product) {
     return <div>Product not found</div>;
@@ -60,7 +62,7 @@ export default function Product() {
                   -
                 </button>
                 <button style={{ border: "none", fontWeight: "700" }}>
-                  {""}
+                  {quantity}
                 </button>
                 <button
                   className="incrementdicrementbtn"
@@ -70,7 +72,7 @@ export default function Product() {
                 </button>
               </div>
               <button
-                onClick={() => addToCart(product)}
+                // onClick={() => addToCart(product)}
                 className="GlobalButton"
               >
                 ADD TO CART
