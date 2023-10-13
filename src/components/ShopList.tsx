@@ -4,14 +4,14 @@ import { useContext } from "react";
 import Product from "../routes/Product";
 
 export default function ShopList() {
-  const { items } = UseShoppingCart();
+  const { items, removeAllFromCart } = UseShoppingCart();
 
   return (
     <Container>
       <Section>
         <Top>
           <p>cart ({items.length})</p>
-          {/* <button onClick={() => removeFromCart()}>Remove all</button> */}
+          <button onClick={() => removeAllFromCart()}>Remove all</button>
         </Top>
         {items.length === 0 ? (
           <Middle>Your Cart is empty</Middle>

@@ -13,6 +13,7 @@ interface ProductContextProps {
   incraseCartQuantity: (id: number) => void;
   decreaseCartQuantity: (id: number) => void;
   removeFromCart: (id: number) => void;
+  removeAllFromCart: () => void;
 }
 
 const CartContext = createContext<ProductContextProps>(
@@ -75,6 +76,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       return currItems.filter((item) => item.id !== id);
     });
   }
+  function removeAllFromCart() {
+    setItems([]);
+  }
   return (
     <CartContext.Provider
       value={{
@@ -84,6 +88,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         incraseCartQuantity,
         decreaseCartQuantity,
         removeFromCart,
+        removeAllFromCart,
       }}
     >
       {children}
