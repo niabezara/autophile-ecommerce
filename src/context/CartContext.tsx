@@ -14,6 +14,7 @@ interface ProductContextProps {
   decreaseCartQuantity: (id: number) => void;
   removeFromCart: (id: number) => void;
   removeAllFromCart: () => void;
+  cartQuantity: number;
 }
 
 const CartContext = createContext<ProductContextProps>(
@@ -26,6 +27,11 @@ export function UseShoppingCart() {
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
+
+  const cartQuantity = items.reduce(
+    (quantity, item) => quantity + item.quantity,
+    0
+  );
 
   const addToCart = (product: ProductInterface, quantity: number = 1) => {
     setItems((prevState) => {
@@ -89,6 +95,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         decreaseCartQuantity,
         removeFromCart,
         removeAllFromCart,
+        cartQuantity,
       }}
     >
       {children}
