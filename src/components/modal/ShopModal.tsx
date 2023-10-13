@@ -9,6 +9,7 @@ interface ShopModalProps {
 
 export default function ShopModal({ open, children }: ShopModalProps) {
   const portalElement = document.getElementById("portal");
+
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -16,6 +17,7 @@ export default function ShopModal({ open, children }: ShopModalProps) {
       document.body.style.overflow = "auto";
     }
   }, [open]);
+
   if (!open || !portalElement) return null;
   return ReactDom.createPortal(
     <>
@@ -48,14 +50,8 @@ const Div = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
-  @media (min-width: 500px) {
-    /* top: 30%;
-    transform: translate(-30%, -50%);
-    right: 50%; */
-  }
+
   @media (min-width: 900px) {
-    /* top: 0%; */
-    /* left: unset;
-    right: 8%; */
+    transform: translate(10%, -50%);
   }
 `;

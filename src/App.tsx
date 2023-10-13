@@ -10,6 +10,7 @@ import Earphones from "./routes/Earphones";
 import Footer from "./components/Footer";
 import Product from "./routes/Product";
 import { CartProvider } from "./context/CartContext";
+import CheckOut from "./routes/CheckOut";
 
 function App() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -40,6 +41,7 @@ function App() {
           <Route path="/Speakers" element={<Speakers />} />
           <Route path="/Earphones" element={<Earphones />} />
           <Route path="/product/:slug" element={<Product />} />
+          <Route path="/checkout" element={<CheckOut />} />
         </Routes>
         <Footer />
       </CartProvider>

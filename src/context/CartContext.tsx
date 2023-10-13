@@ -89,6 +89,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     <CartContext.Provider
       value={{
         items,
+
         addToCart,
         getItemQuantity,
         incraseCartQuantity,

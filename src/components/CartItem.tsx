@@ -61,11 +61,13 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 0.9375rem;
+    cursor: pointer;
     font-weight: 700;
     .incrementdicrementbtn {
       display: flex;
       border: none;
       opacity: 0.25;
+      cursor: pointer;
       width: 1rem;
       height: 1.125rem;
     }

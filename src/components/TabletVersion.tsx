@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Modal from "./modal/ShopModal";
+import Modal from "../components/modal/ShopModal";
 import ShopList from "./ShopList";
 
 export default function TabletVersion({

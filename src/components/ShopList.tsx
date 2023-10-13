@@ -1,12 +1,20 @@
 import styled from "styled-components";
 import { UseShoppingCart } from "../context/CartContext";
-import { useContext } from "react";
 import ProductData from "../data/data.json";
-import Product from "../routes/Product";
 import { CartItem } from "./CartItem";
+import { useNavigate } from "react-router-dom";
 
 export default function ShopList() {
   const { items, cartQuantity, removeAllFromCart } = UseShoppingCart();
+  const navigate = useNavigate();
+
+  // Check if cart is not empty
+  const EmptyCart = () => {
+    if (items.length > 0) {
+      navigate("/checkout");
+      // setopenModal(false);
+    }
+  };
 
   return (
     <Container>
@@ -45,7 +53,7 @@ export default function ShopList() {
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </p>
         </PriceDiv>
-        <Checkout>checkout</Checkout>
+        <Checkout onClick={EmptyCart}>checkout</Checkout>
       </Section>
     </Container>
   );
@@ -87,6 +95,10 @@ const Top = styled.div`
     line-height: 25px;
     text-decoration-line: underline;
     opacity: 0.5;
+    cursor: pointer;
+    &:hover {
+      color: #d87d4a;
+    }
   }
 `;
 const Middle = styled.div`
@@ -116,4 +128,8 @@ const Checkout = styled.button`
   background: #d87d4a;
   border: none;
   padding: 1.5rem;
+  &:hover {
+    cursor: pointer;
+    background: #fbaf85;
+  }
 `;
