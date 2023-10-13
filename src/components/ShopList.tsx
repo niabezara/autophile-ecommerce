@@ -5,14 +5,15 @@ import { CartItem } from "./CartItem";
 import { useNavigate } from "react-router-dom";
 
 export default function ShopList() {
-  const { items, cartQuantity, removeAllFromCart } = UseShoppingCart();
+  const { items, cartQuantity, removeAllFromCart, closeCart } =
+    UseShoppingCart();
   const navigate = useNavigate();
 
   // Check if cart is not empty
   const EmptyCart = () => {
     if (items.length > 0) {
       navigate("/checkout");
-      // setopenModal(false);
+      closeCart();
     }
   };
 

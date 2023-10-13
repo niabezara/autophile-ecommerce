@@ -1,16 +1,12 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Modal from "../components/modal/ShopModal";
 import ShopList from "./ShopList";
+import { UseShoppingCart } from "../context/CartContext";
 
-export default function TabletVersion({
-  setOpenModal,
-  openModal,
-}: {
-  openModal: boolean;
-  setOpenModal: Dispatch<SetStateAction<boolean>>;
-}) {
+export default function TabletVersion() {
+  const { openCart, openModal } = UseShoppingCart();
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -44,7 +40,7 @@ export default function TabletVersion({
         <Logo src="/assets/shared/desktop/logo.svg" alt="" />
       </nav>
       <button
-        onClick={() => setOpenModal((prevOpenModal) => !prevOpenModal)}
+        onClick={openCart}
         style={{ background: "transparent", border: "none" }}
       >
         <img

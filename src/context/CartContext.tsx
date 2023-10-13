@@ -15,6 +15,9 @@ interface ProductContextProps {
   removeFromCart: (id: number) => void;
   removeAllFromCart: () => void;
   cartQuantity: number;
+  openCart: () => void;
+  openModal: boolean;
+  closeCart: () => void;
 }
 
 const CartContext = createContext<ProductContextProps>(
@@ -27,7 +30,14 @@ export function UseShoppingCart() {
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
+  const [openModal, setOpenModal] = useState(false);
 
+  const openCart = () => {
+    setOpenModal((prevOpenModal) => !prevOpenModal);
+  };
+  const closeCart = () => {
+    setOpenModal(false);
+  };
   const cartQuantity = items.reduce(
     (quantity, item) => quantity + item.quantity,
     0
@@ -89,7 +99,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     <CartContext.Provider
       value={{
         items,
-
+        closeCart,
+        openModal,
+        openCart,
         addToCart,
         getItemQuantity,
         incraseCartQuantity,
