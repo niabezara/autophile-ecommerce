@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { UseShoppingCart } from "../context/CartContext";
 import { useContext } from "react";
+import ProductData from "../data/data.json";
 import Product from "../routes/Product";
 import { CartItem } from "./CartItem";
 
@@ -30,7 +31,18 @@ export default function ShopList() {
               fontWeight: "700",
             }}
           >
-            price
+            $
+            {items
+              .reduce((total, item) => {
+                const product = ProductData.find(
+                  (product) => product.id === item.id
+                );
+                const itemPrice = product?.price || 0;
+                const itemQuantity = item.quantity;
+                return total + itemPrice * itemQuantity;
+              }, 0)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </p>
         </PriceDiv>
         <Checkout>checkout</Checkout>
@@ -40,7 +52,7 @@ export default function ShopList() {
 }
 const Container = styled.div`
   width: 100%;
-
+  max-height: 45.5rem;
   border-radius: 0.5rem;
   background-color: #fff;
   margin-left: auto;
@@ -48,6 +60,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  overflow-y: scroll;
 `;
 const Section = styled.section`
   flex-grow: 1;

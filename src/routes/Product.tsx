@@ -6,7 +6,6 @@ import SimilarProducts from "../components/SimilarProducts";
 import Categories from "../components/Categories";
 import Info from "../components/Info";
 import { UseShoppingCart } from "../context/CartContext";
-import { useContext } from "react";
 
 export default function Product() {
   const { slug } = useParams<{ slug: string }>();

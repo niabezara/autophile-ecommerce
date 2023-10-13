@@ -1,4 +1,3 @@
-import React from "react";
 import { UseShoppingCart } from "../context/CartContext";
 import ProductData from "../data/data.json";
 import styled from "styled-components";
@@ -8,7 +7,8 @@ type CartItemProps = {
 };
 
 export function CartItem({ id, quantity }: CartItemProps) {
-  const { removeFromCart } = UseShoppingCart();
+  const { incraseCartQuantity, decreaseCartQuantity } = UseShoppingCart();
+
   const item = ProductData.find((i) => i.id === id);
   if (item == null) return null;
 
@@ -19,15 +19,27 @@ export function CartItem({ id, quantity }: CartItemProps) {
       </div>
       <div style={{ flex: " 1 1 45%" }}>
         <h1>{item.name}</h1>
-        <p>${item.price}</p>
+        <p style={{ opacity: "0.5", fontSize: "14px" }}>
+          ${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        </p>
       </div>
 
       <div className="addingitems" style={{ flex: " 1 1 30%" }}>
-        <button className="incrementdicrementbtn">-</button>
+        <button
+          className="incrementdicrementbtn"
+          onClick={() => decreaseCartQuantity(item.id)}
+        >
+          -
+        </button>
         <button style={{ border: "none", fontWeight: "700" }}>
           {quantity}
         </button>
-        <button className="incrementdicrementbtn">+</button>
+        <button
+          className="incrementdicrementbtn"
+          onClick={() => incraseCartQuantity(item.id)}
+        >
+          +
+        </button>
       </div>
     </Container>
   );
