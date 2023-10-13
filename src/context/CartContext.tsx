@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { ProductInterface } from "../types/types";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 type CartItem = {
   id: number;
@@ -29,7 +30,7 @@ export function UseShoppingCart() {
 }
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
+  const [items, setItems] = useLocalStorage<CartItem[]>("shopping-cart", []);
   const [openModal, setOpenModal] = useState(false);
 
   const openCart = () => {
