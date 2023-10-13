@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Billing from "../components/Billing";
 
 export default function CheckOut() {
   const navigate = useNavigate();
@@ -10,7 +11,10 @@ export default function CheckOut() {
         <button className="Back" onClick={() => navigate(-1)}>
           Go Back
         </button>
-        <Wrapper></Wrapper>
+        <Wrapper>
+          <h1>CHECKOUT</h1>
+          <Billing />
+        </Wrapper>
       </SubContainer>
     </Container>
   );
@@ -21,7 +25,7 @@ const Container = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  background-color: #f2f2f2;
   @media screen and (min-width: 900px) {
     /* padding: 9.7rem; */
   }
@@ -31,8 +35,9 @@ const SubContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 8rem;
   padding: 2.4rem;
+  width: 100%;
+
   .Back {
     border: none;
     background: transparent;
@@ -50,27 +55,9 @@ const SubContainer = styled.div`
     margin: 0 auto;
   }
 `;
-
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2.4rem;
-
-  @media screen and (min-width: 500px) {
-    flex-direction: row;
-    align-items: center;
-    gap: 6rem;
-    .Info {
-      align-items: flex-start;
-      .Title {
-        text-align: left;
-      }
-    }
-  }
-
-  @media screen and (min-width: 900px) {
-    gap: 12.5rem;
-  }
+  background: #fff;
+  padding: 1.6rem;
+  border-radius: 8px;
+  width: 100%;
 `;
