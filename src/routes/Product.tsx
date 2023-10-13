@@ -19,7 +19,7 @@ export default function Product() {
   const {
     incraseCartQuantity,
     decreaseCartQuantity,
-    // addToCart,
+    addToCart,
     getItemQuantity,
   } = UseShoppingCart();
 
@@ -72,7 +72,7 @@ export default function Product() {
                 </button>
               </div>
               <button
-                // onClick={() => addToCart(product)}
+                onClick={() => addToCart(product)}
                 className="GlobalButton"
               >
                 ADD TO CART

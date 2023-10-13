@@ -7,9 +7,9 @@ type CartItem = {
 };
 
 interface ProductContextProps {
-  //   items: ProductInterface[];
+  items: CartItem[];
   getItemQuantity: (id: number) => number;
-  //   addToCart: (product: ProductInterface) => void;
+  addToCart: (product: ProductInterface) => void;
   incraseCartQuantity: (id: number) => void;
   decreaseCartQuantity: (id: number) => void;
   removeFromCart: (id: number) => void;
@@ -26,21 +26,19 @@ export function UseShoppingCart() {
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
 
-  //   const addToCart = (product: ProductInterface) => {
-  //     const productExist = items.find((item) => item.id === product.id);
-  //     if (productExist) {
-  //       setItems((prevState) =>
-  //         prevState.map((item) =>
-  //           item.id === product.id
-  //             ? { ...item, quantity: item.quantity + 1 }
-  //             : item
-  //         )
-  //       );
-  //     } else {
-  //       const productWithQuantity = { ...product, quantity: 1 };
-  //       setItems((prevState) => [...prevState, productWithQuantity]);
-  //     }
-  //   };
+  const addToCart = (product: ProductInterface, quantity: number = 1) => {
+    setItems((prevState) => {
+      const itemExists = prevState.find((item) => item.id === product.id);
+
+      if (itemExists) {
+        return prevState.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity } : item
+        );
+      } else {
+        return [...prevState, { ...product, quantity: quantity }];
+      }
+    });
+  };
 
   function getItemQuantity(id: number): number {
     const item = items.find((item) => item.id === id);
@@ -80,8 +78,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   return (
     <CartContext.Provider
       value={{
-        // items,
-        // addToCart,
+        items,
+        addToCart,
         getItemQuantity,
         incraseCartQuantity,
         decreaseCartQuantity,

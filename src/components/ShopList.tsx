@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { UseShoppingCart } from "../context/CartContext";
 import { useContext } from "react";
+import Product from "../routes/Product";
 
 export default function ShopList() {
   const { items } = UseShoppingCart();
@@ -10,16 +11,16 @@ export default function ShopList() {
       <Section>
         <Top>
           <p>cart ({items.length})</p>
-          <button>Remove all</button>
+          {/* <button onClick={() => removeFromCart()}>Remove all</button> */}
         </Top>
         {items.length === 0 ? (
           <Middle>Your Cart is empty</Middle>
         ) : (
           items.map((item, index) => (
             <div key={index}>
-              <p>Name: {item.name}</p>
-              <p>Price: {item.price}</p>
-              <p>Category: {item.category}</p>
+              {/* <p>Name: {item.name}</p>
+              <p>Price: {item.price}</p> */}
+              <p>quantity: {item.quantity}</p>
             </div>
           ))
         )}
