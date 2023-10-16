@@ -141,7 +141,7 @@ export default function Billing() {
           />
         </Section>
       </ShippingSection>
-      <div>
+      <PaymentSection>
         <p
           style={{
             fontSize: "13px",
@@ -153,7 +153,7 @@ export default function Billing() {
           payment details
         </p>
         <Payment />
-      </div>
+      </PaymentSection>
       <button type="submit">Continue</button>
     </form>
   );
@@ -212,6 +212,12 @@ const BillSection = styled.div`
   margin-bottom: 2.4rem;
 `;
 const ShippingSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  margin-bottom: 2.4rem;
+`;
+const PaymentSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;

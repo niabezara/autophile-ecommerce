@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Billing from "../components/Billing";
+import Summery from "../components/Summery";
 
 export default function CheckOut() {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ export default function CheckOut() {
         <Wrapper>
           <h1>CHECKOUT</h1>
           <Billing />
+          <Summery />
         </Wrapper>
       </SubContainer>
     </Container>

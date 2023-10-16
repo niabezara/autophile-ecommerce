@@ -5,7 +5,8 @@ import styled from "styled-components";
 export default function Payment() {
   const [checked, setChecked] = React.useState(false);
   const [checkedCash, setCheckedCash] = React.useState(false);
-
+  const [emoneyNumber, setEmoneyNumber] = useState("");
+  const [emoneyPin, setEmoneyPin] = useState("");
   const handleChange = () => {
     setChecked(!checked);
     setCheckedCash(false);
@@ -13,6 +14,17 @@ export default function Payment() {
   const handleChangeCash = () => {
     setCheckedCash(!checkedCash);
     setChecked(false);
+  };
+  const handleEmoneyNumberChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setEmoneyNumber(event.target.value);
+  };
+
+  const handleEmoneyPinChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setEmoneyPin(event.target.value);
   };
   return (
     <Container>
@@ -37,12 +49,30 @@ export default function Payment() {
         </label>
       </CheckInput>
       {checked && (
-        <div>
-          <p>e-Money Number</p>
-          <input type="number" />
-          <p>e-Money PIN</p>
-          <input type="number" />
-        </div>
+        <Emoney>
+          <Section>
+            <Article>
+              <label>e-Money Number</label>
+              {emoneyNumber === "" && <p>Error</p>}
+            </Article>
+            <input
+              placeholder="238521993"
+              value={emoneyNumber}
+              onChange={handleEmoneyNumberChange}
+            />
+          </Section>
+          <Section>
+            <Article>
+              <label>e-Money PIN</label>
+              {emoneyNumber === "" && <p>Error</p>}
+            </Article>
+            <input
+              placeholder="6891"
+              value={emoneyPin}
+              onChange={handleEmoneyPinChange}
+            />
+          </Section>
+        </Emoney>
       )}
     </Container>
   );
@@ -109,5 +139,56 @@ const Check = styled.div<{ checked: boolean }>`
     height: 13px;
     border-radius: 50%;
     transform: ${(props) => (props.checked ? "scale(1)" : "scale(0)")};
+  }
+`;
+const Emoney = styled.div`
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin-top: 1rem;
+`;
+const Section = styled.div`
+  input {
+    width: 100%;
+    min-width: 0px;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    position: relative;
+    appearance: none;
+    transition: all 0.2s ease 0s;
+    border: 1px solid #cfcfcf;
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.25px;
+    border-width: 1px;
+    border-image: initial;
+    opacity: 0.4;
+    background: inherit;
+    &:focus {
+      border: 1px solid #d87d4a;
+    }
+  }
+`;
+const Article = styled.div`
+  display: flex;
+  justify-content: space-between;
+  label {
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.214px;
+    margin-bottom: 9px;
+  }
+  p {
+    color: #cd2c2c;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.214px;
   }
 `;
