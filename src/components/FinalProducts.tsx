@@ -1,4 +1,3 @@
-import { UseShoppingCart } from "../context/CartContext";
 import ProductData from "../data/data.json";
 import styled from "styled-components";
 type CartItemProps = {
@@ -11,31 +10,37 @@ export function FinalProducts({ id, quantity }: CartItemProps) {
   if (item == null) return null;
 
   return (
-    <Container>
-      <div style={{ flex: " 1 1 30%" }}>
-        <img src={item.image.mobile} alt="" />
-      </div>
-      <div style={{ flex: " 1 1 45%" }}>
-        <h1>{item.name}</h1>
-        <p style={{ opacity: "0.5", fontSize: "14px" }}>
-          ${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-        </p>
-      </div>
+    <div>
+      <Section>
+        <div>
+          <img src={item.image.mobile} alt="" />
+        </div>
+        <div style={{ flex: " 1 1 45%" }}>
+          <h1>{item.name}</h1>
+          <p style={{ opacity: "0.5", fontSize: "14px" }}>
+            ${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </p>
+        </div>
 
-      <div>
-        <p>X{quantity}</p>
-      </div>
-    </Container>
+        <div>
+          <p style={{ fontSize: "15px", fontWeight: "700", opacity: "0.5" }}>
+            X{quantity}
+          </p>
+        </div>
+      </Section>
+    </div>
   );
 }
 
-const Container = styled.div`
+const Section = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
   gap: 1rem;
   img {
-    max-width: 100%;
+    border-radius: 0.5rem;
+    width: 6rem;
+    height: 6rem;
   }
   .addingitems {
     background-color: #f1f1f1;

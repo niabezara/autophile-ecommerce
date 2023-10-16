@@ -28,7 +28,6 @@ export default function Payment() {
   };
   return (
     <Container>
-      <p style={{ fontSize: "12px", fontWeight: "700" }}>Payment Method</p>
       <CheckInput>
         <label>
           <Check checked={checked}></Check>
@@ -146,6 +145,10 @@ const Emoney = styled.div`
   gap: 1rem;
   grid-template-columns: 1fr;
   margin-top: 1rem;
+
+  @media screen and (min-width: 500px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 const Section = styled.div`
   input {
