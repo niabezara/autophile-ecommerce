@@ -4,8 +4,15 @@ import styled from "styled-components";
 
 export default function Payment() {
   const [checked, setChecked] = React.useState(false);
+  const [checkedCash, setCheckedCash] = React.useState(false);
+
   const handleChange = () => {
     setChecked(!checked);
+    setCheckedCash(false);
+  };
+  const handleChangeCash = () => {
+    setCheckedCash(!checkedCash);
+    setChecked(false);
   };
   return (
     <Container>
@@ -19,8 +26,13 @@ export default function Payment() {
       </CheckInput>
       <CheckInput>
         <label>
-          <Check></Check>
-          <input type="checkbox" name="cash" />
+          <Check checked={checkedCash}></Check>
+          <input
+            type="checkbox"
+            name="cash"
+            checked={checked}
+            onChange={handleChangeCash}
+          />
           Cash on Delivery
         </label>
       </CheckInput>
