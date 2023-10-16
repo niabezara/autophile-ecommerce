@@ -46,6 +46,7 @@ const SubContainer = styled.div`
     font-size: 15px;
     font-weight: 500;
     line-height: 25px;
+    margin-bottom: 2.4rem;
   }
   @media screen and (min-width: 500px) {
     padding: 3.9rem;
@@ -59,5 +60,8 @@ const Wrapper = styled.div`
   background: #fff;
   padding: 1.6rem;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  gap: 2.4rem;
 `;
