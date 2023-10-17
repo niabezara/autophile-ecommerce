@@ -19,7 +19,7 @@ function App() {
     setIsNavbarOpen(!isNavbarOpen);
   };
   return (
-    <>
+    <div style={{ overflowY: "auto", maxHeight: "100vh" }}>
       <Helmet>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -45,7 +45,7 @@ function App() {
         </Routes>
         <Footer />
       </CartProvider>
-    </>
+    </div>
   );
 }
 

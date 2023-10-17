@@ -2,10 +2,12 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import styled from "styled-components";
 import Payment from "./Payment";
 import Summery from "./Summery";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "./modal/OrderModal";
 import React from "react";
 import Order from "./Order";
+import { useNavigate } from "react-router-dom";
+import { UseShoppingCart } from "../context/CartContext";
 
 interface IFormInput {
   firstName: string;
@@ -25,7 +27,7 @@ export default function Billing() {
     handleSubmit,
     formState: { errors },
   } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data: any) => console.log(data);
+
   const [checked, setChecked] = React.useState(false);
   const [checkedCash, setCheckedCash] = React.useState(false);
   const handleChange = () => {
@@ -36,7 +38,41 @@ export default function Billing() {
     setCheckedCash(!checkedCash);
     setChecked(false);
   };
+  const { removeAllFromCart } = UseShoppingCart();
   const [open, setOpen] = useState(false);
+  const validateForm = (data: IFormInput): boolean => {
+    const { firstName, email, phone, address, ZIP, city, Country } = data;
+
+    if (
+      !firstName ||
+      !email ||
+      !phone ||
+      !address ||
+      !ZIP ||
+      !city ||
+      !Country ||
+      (!checked && !checkedCash)
+    ) {
+      return false;
+    }
+
+    return true;
+  };
+  const onSubmit: SubmitHandler<IFormInput> = (data: IFormInput) => {
+    const isFormValid = validateForm(data);
+    if (isFormValid) {
+      return setOpen(true);
+    } else {
+      alert("Please fill in all the required fields.");
+    }
+  };
+
+  const navigate = useNavigate();
+  const HandleClose = () => {
+    setOpen(false);
+    navigate("/");
+    removeAllFromCart();
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -294,15 +330,14 @@ export default function Billing() {
         <SummeryContainer>
           <Summery />
           <button
-            onClick={() => setOpen(true)}
             type="submit"
             className="GlobalButton"
             style={{ width: "100%", marginTop: "3.2rem" }}
           >
             CONTINUE & PAY
           </button>
-          <Modal open={open} onClose={() => setOpen(false)}>
-            <Order onClose={() => setOpen(false)} />
+          <Modal open={open} onClose={HandleClose}>
+            <Order onClose={HandleClose} />
           </Modal>
         </SummeryContainer>
       </Wrap>
