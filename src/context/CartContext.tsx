@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { ProductInterface } from "../types/types";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
@@ -17,6 +17,7 @@ interface ProductContextProps {
   removeAllFromCart: () => void;
   cartQuantity: number;
   openCart: () => void;
+  setOpenModal: any;
   openModal: boolean;
   closeCart: () => void;
 }
@@ -102,6 +103,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         items,
         closeCart,
         openModal,
+        setOpenModal,
         openCart,
         addToCart,
         getItemQuantity,

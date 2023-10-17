@@ -1,4 +1,3 @@
-import React from "react";
 import FinalProducts from "./FinalProducts";
 import { UseShoppingCart } from "../context/CartContext";
 import ProductData from "../data/data.json";

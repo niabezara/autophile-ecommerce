@@ -5,7 +5,8 @@ import ShopList from "./ShopList";
 import { UseShoppingCart } from "../context/CartContext";
 
 export default function DesktopVersion() {
-  const { openCart, openModal } = UseShoppingCart();
+  const { openCart, openModal, setOpenModal } = UseShoppingCart();
+
   return (
     <Head>
       <div className="Subheader">
@@ -35,7 +36,7 @@ export default function DesktopVersion() {
         >
           <Logo src="/assets/shared/desktop/icon-cart.svg" alt="" />
         </button>
-        <Modal open={openModal}>
+        <Modal open={openModal} setOpenModal={setOpenModal}>
           <ShopList />
         </Modal>
       </div>

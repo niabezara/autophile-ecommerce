@@ -2,7 +2,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import styled from "styled-components";
 import Payment from "./Payment";
 import Summery from "./Summery";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Modal from "./modal/OrderModal";
 import React from "react";
 import Order from "./Order";
