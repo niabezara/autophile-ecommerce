@@ -16,14 +16,14 @@ export function FinalProducts({ id, quantity }: CartItemProps) {
           <img src={item.image.mobile} alt="" />
         </div>
         <div style={{ flex: " 1 1 45%" }}>
-          <h1>{item.name}</h1>
-          <p style={{ opacity: "0.5", fontSize: "14px" }}>
+          <h1 style={{ fontSize: "10px" }}>{item.name}</h1>
+          <p style={{ opacity: "0.5", fontSize: "10px" }}>
             ${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </p>
         </div>
 
         <div>
-          <p style={{ fontSize: "15px", fontWeight: "700", opacity: "0.5" }}>
+          <p style={{ fontSize: "10px", fontWeight: "700", opacity: "0.5" }}>
             X{quantity}
           </p>
         </div>

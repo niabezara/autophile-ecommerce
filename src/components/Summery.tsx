@@ -99,19 +99,19 @@ const Calc = styled.div`
     justify-content: space-between;
     p {
       color: #000;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 700;
     }
     .grandtotal {
       color: #d87d4a;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 700;
       text-transform: uppercase;
     }
   }
   .title {
     color: #000;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 25px;
     opacity: 0.5;
