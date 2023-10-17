@@ -10,7 +10,7 @@ export function FinalProducts({ id, quantity }: CartItemProps) {
   if (item == null) return null;
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <Section>
         <div>
           <img src={item.image.mobile} alt="" />

@@ -308,6 +308,7 @@ export default function Billing() {
                 <div
                   style={{
                     display: "flex",
+                    alignItems: "center",
                     gap: "2rem",
                     gridArea: "2 / 1 / 3 / 3",
                   }}

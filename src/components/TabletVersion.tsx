@@ -6,7 +6,7 @@ import ShopList from "./ShopList";
 import { UseShoppingCart } from "../context/CartContext";
 
 export default function TabletVersion() {
-  const { openCart, openModal } = UseShoppingCart();
+  const { openCart, openModal, setOpenModal } = UseShoppingCart();
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -50,7 +50,7 @@ export default function TabletVersion() {
         />
       </button>
 
-      <Modal open={openModal}>
+      <Modal open={openModal} setOpenModal={setOpenModal}>
         <ShopList />
       </Modal>
     </Head>

@@ -11,7 +11,7 @@ export default function MobileVersion({
   isNavbarOpen: boolean;
   toggleNavbar: () => void;
 }) {
-  const { openCart, openModal } = UseShoppingCart();
+  const { openCart, openModal, setOpenModal } = UseShoppingCart();
   return (
     <Head>
       <nav>
@@ -48,7 +48,7 @@ export default function MobileVersion({
           style={{ width: "20px", height: "23px" }}
         />
       </button>
-      <Modal open={openModal}>
+      <Modal open={openModal} setOpenModal={setOpenModal}>
         <ShopList />
       </Modal>
     </Head>

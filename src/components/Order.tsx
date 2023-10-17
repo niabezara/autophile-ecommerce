@@ -11,17 +11,32 @@ export default function Order({ onClose }: OrderProps) {
     <Container>
       <img src="/assets/checkout/icon-order-confirmation.svg" alt="" />
       <h1>THANK YOU FOR YOUR ORDER</h1>
-      <p>You will receive an email confirmation shortly.</p>
-      <ProductItem>
-        <div>
-          {items.map((item) => (
+      <p style={{ fontSize: "15px", opacity: "0.5" }}>
+        You will receive an email confirmation shortly.
+      </p>
+      <ProductItemDiv>
+        <ProductItem>
+          {items.slice(0, 1).map((item) => (
             <FinalProducts
               key={item.id}
               id={item.id}
               quantity={item.quantity}
             />
           ))}
-        </div>
+          <hr
+            style={{
+              opacity: "0.08",
+              background: "#000",
+              height: "1px",
+              width: "90%",
+            }}
+          />
+          {items.length > 1 && (
+            <p
+              style={{ padding: "0 1.2rem ", opacity: "0.5", fontSize: "12px" }}
+            >{`And ${items.length - 1} other item(s)`}</p>
+          )}
+        </ProductItem>
         <Price>
           <p className="titlegrand">GRAND TOTAL</p>
           <p className="grandtotal">
@@ -40,7 +55,7 @@ export default function Order({ onClose }: OrderProps) {
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </p>
         </Price>
-      </ProductItem>
+      </ProductItemDiv>
 
       {onClose && (
         <button
@@ -65,8 +80,8 @@ const Container = styled.div`
   max-width: 54rem;
   background-color: #f2f2f2;
   img {
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
     display: block;
     max-width: 100%;
   }
@@ -85,12 +100,29 @@ const Price = styled.div`
   }
   @media screen and (min-width: 500px) {
     border-radius: 0px 8px 8px 0px;
+    margin-bottom: unset;
   }
 `;
 const ProductItem = styled.div`
-  border-radius: 8px;
-  background-color: #f1f1f174;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2b272730;
+  padding: 2.4rem;
+  border-radius: 8px 8px 0 0;
   @media screen and (min-width: 500px) {
     display: flex;
+    width: 100%;
+  }
+  @media screen and (min-width: 900px) {
+    border-radius: 8px 0 0 8px;
+    width: 100%;
+  }
+`;
+const ProductItemDiv = styled.div`
+  @media screen and (min-width: 900px) {
+    display: flex;
+    width: 100%;
   }
 `;
