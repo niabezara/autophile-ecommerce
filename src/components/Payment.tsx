@@ -2,30 +2,17 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function Payment() {
-  const [checked, setChecked] = React.useState(false);
-  const [checkedCash, setCheckedCash] = React.useState(false);
-  const [emoneyNumber, setEmoneyNumber] = useState("");
-  const [emoneyPin, setEmoneyPin] = useState("");
-  const handleChange = () => {
-    setChecked(!checked);
-    setCheckedCash(false);
-  };
-  const handleChangeCash = () => {
-    setCheckedCash(!checkedCash);
-    setChecked(false);
-  };
-  const handleEmoneyNumberChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setEmoneyNumber(event.target.value);
-  };
-
-  const handleEmoneyPinChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setEmoneyPin(event.target.value);
-  };
+export default function Payment({
+  checked,
+  checkedCash,
+  handleChange,
+  handleChangeCash,
+}: {
+  checked: boolean;
+  checkedCash: boolean;
+  handleChange: () => void;
+  handleChangeCash: () => void;
+}) {
   return (
     <Container>
       <CheckInput>
@@ -47,32 +34,6 @@ export default function Payment() {
           Cash on Delivery
         </label>
       </CheckInput>
-      {checked && (
-        <Emoney>
-          <Section>
-            <Article>
-              <label>e-Money Number</label>
-              {emoneyNumber === "" && <p>Error</p>}
-            </Article>
-            <input
-              placeholder="238521993"
-              value={emoneyNumber}
-              onChange={handleEmoneyNumberChange}
-            />
-          </Section>
-          <Section>
-            <Article>
-              <label>e-Money PIN</label>
-              {emoneyNumber === "" && <p>Error</p>}
-            </Article>
-            <input
-              placeholder="6891"
-              value={emoneyPin}
-              onChange={handleEmoneyPinChange}
-            />
-          </Section>
-        </Emoney>
-      )}
     </Container>
   );
 }

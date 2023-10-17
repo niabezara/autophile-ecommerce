@@ -2,6 +2,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import styled from "styled-components";
 import Payment from "./Payment";
 import Summery from "./Summery";
+import { useState } from "react";
+import React from "react";
 
 interface IFormInput {
   firstName: string;
@@ -11,6 +13,8 @@ interface IFormInput {
   ZIP: number;
   city: string;
   Country: string;
+  Emoney: number;
+  Pin: number;
 }
 
 export default function Billing() {
@@ -20,13 +24,23 @@ export default function Billing() {
     formState: { errors },
   } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data: any) => console.log(data);
+  const [checked, setChecked] = React.useState(false);
+  const [checkedCash, setCheckedCash] = React.useState(false);
+  const handleChange = () => {
+    setChecked(!checked);
+    setCheckedCash(false);
+  };
+  const handleChangeCash = () => {
+    setCheckedCash(!checkedCash);
+    setChecked(false);
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div
         style={{
           background: "#fff",
-          padding: " 1.6rem",
+          padding: " 3rem",
           borderRadius: "8px",
           width: "100%",
         }}
@@ -79,10 +93,8 @@ export default function Billing() {
                 {errors.phone && <p>{errors.phone.message}</p>}
               </Article>
               <input
-                type="number"
                 placeholder="+1 202-555-0136"
                 {...register("phone", {
-                  valueAsNumber: true,
                   required: "Field cannot be empty",
                 })}
               />
@@ -173,14 +185,48 @@ export default function Billing() {
               Payment Method
             </p>
 
-            <Payment />
+            <Payment
+              checked={checked}
+              checkedCash={checkedCash}
+              handleChange={handleChange}
+              handleChangeCash={handleChangeCash}
+            />
+            {checked && (
+              <div style={{ gridArea: "2 / 1 / 3 / 3" }}>
+                <Section>
+                  <Article>
+                    <label>e-Money Number</label>
+                    {errors.Emoney && <p>{errors.Emoney.message}</p>}
+                  </Article>
+                  <input
+                    placeholder="238521993"
+                    {...register("Emoney", {
+                      required: "Field cannot be empty",
+                    })}
+                  />
+                </Section>
+                <Section>
+                  <Article>
+                    <label>e-Money PIN</label>
+                    {errors.Pin && <p>{errors.Pin.message}</p>}
+                  </Article>
+                  <input
+                    placeholder="6891"
+                    {...register("Pin", {
+                      maxLength: 4,
+                      required: "Field cannot be empty",
+                    })}
+                  />
+                </Section>
+              </div>
+            )}
           </PaymentSection>
         </div>
       </div>
       <div
         style={{
           background: "#fff",
-          padding: " 1.6rem",
+          padding: " 3rem",
           borderRadius: "8px",
           width: "100%",
           marginTop: "3.2rem",
@@ -218,8 +264,11 @@ const Section = styled.div`
     letter-spacing: -0.25px;
     border-width: 1px;
     border-image: initial;
-    opacity: 0.4;
     background: inherit;
+    color: black;
+    ::placeholder {
+      opacity: 0.4;
+    }
     &:focus {
       border: 1px solid #d87d4a;
     }
@@ -277,7 +326,8 @@ const PaymentSection = styled.div`
   margin-bottom: 2.4rem;
   @media screen and (min-width: 500px) {
     display: grid;
-    grid-gap: 1rem;
+
+    gap: 1rem;
     grid-template-columns: 1fr 1fr;
   }
 `;
