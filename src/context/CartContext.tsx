@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { ProductInterface } from "../types/types";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 

@@ -25,7 +25,13 @@ export default function Product() {
   const quantity = product?.id ? getItemQuantity(product.id) : 0;
 
   if (!product) {
-    return <div>Product not found</div>;
+    return (
+      <Container style={{ minHeight: "100vh" }}>
+        <SubContainer>
+          <h1>Product not found 😢</h1>
+        </SubContainer>
+      </Container>
+    );
   }
 
   return (
