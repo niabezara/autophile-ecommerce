@@ -192,8 +192,14 @@ export default function Billing() {
               handleChangeCash={handleChangeCash}
             />
             {checked && (
-              <div style={{ gridArea: "2 / 1 / 3 / 3" }}>
-                <Section>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "2rem",
+                  gridArea: "2 / 1 / 3 / 3",
+                }}
+              >
+                <Section style={{ width: "100%" }}>
                   <Article>
                     <label>e-Money Number</label>
                     {errors.Emoney && <p>{errors.Emoney.message}</p>}
@@ -205,7 +211,7 @@ export default function Billing() {
                     })}
                   />
                 </Section>
-                <Section>
+                <Section style={{ width: "100%" }}>
                   <Article>
                     <label>e-Money PIN</label>
                     {errors.Pin && <p>{errors.Pin.message}</p>}
@@ -218,6 +224,23 @@ export default function Billing() {
                     })}
                   />
                 </Section>
+              </div>
+            )}
+            {checkedCash && (
+              <div
+                style={{
+                  display: "flex",
+                  gap: "2rem",
+                  gridArea: "2 / 1 / 3 / 3",
+                }}
+              >
+                <img src="/assets/checkout/icon-cash-on-delivery.svg" alt="" />
+                <p>
+                  The ‘Cash on Delivery’ option enables you to pay in cash when
+                  our delivery courier arrives at your residence. Just make sure
+                  your address is correct so that your order will not be
+                  cancelled.
+                </p>
               </div>
             )}
           </PaymentSection>
