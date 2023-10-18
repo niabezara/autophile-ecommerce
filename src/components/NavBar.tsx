@@ -27,7 +27,7 @@ export default function NavBar() {
     <motion.div
       initial={{ y: -250 }}
       animate={{ y: 0 }}
-      transition={{ delay: 0.2, type: "spring", stiffness: 10 }}
+      transition={{ type: "spring", stiffness: 50 }}
     >
       {isMobile ? (
         <MobileVersion />

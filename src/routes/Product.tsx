@@ -259,22 +259,30 @@ const Wrapper = styled.div`
 `;
 const Btns = styled.div`
   display: flex;
+  align-items: center;
   gap: 1.5rem;
   .addingitems {
     background-color: #f1f1f1;
-    width: 7.5rem;
-    height: 5rem;
+    width: 8.5rem;
+    height: 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 0.9375rem;
+    /* padding: 0 0.9375rem; */
     font-weight: 700;
     .incrementdicrementbtn {
       display: flex;
+      justify-content: center;
+      align-items: center;
       border: none;
-      opacity: 0.25;
-      width: 1rem;
-      height: 1.125rem;
+      opacity: 1.5;
+      font-weight: initial;
+      width: 100%;
+      height: 100%;
+      &:hover {
+        cursor: pointer;
+        background-color: #bfbaba;
+      }
     }
   }
 `;

@@ -291,14 +291,19 @@ export default function Billing() {
                     </Article>
                     <input
                       style={{
-                        border: errors.firstName?.message
-                          ? "1px solid #CD2C2C"
-                          : "",
+                        border: errors.Pin ? "1px solid #CD2C2C" : "",
                       }}
                       placeholder="6891"
                       {...register("Pin", {
-                        maxLength: 4,
                         required: "Field cannot be empty",
+                        pattern: {
+                          value: /^\d{4}$/, // Use a regular expression to enforce 4 digits
+                          message: "PIN must be 4 digits",
+                        },
+                        maxLength: {
+                          value: 4,
+                          message: "PIN cannot exceed 4 characters",
+                        },
                       })}
                     />
                   </Section>
