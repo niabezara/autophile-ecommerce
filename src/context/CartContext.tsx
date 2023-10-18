@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { ProductInterface } from "../types/types";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { toast } from "react-toastify";
 
 type CartItem = {
   id: number;
@@ -21,7 +22,7 @@ interface ProductContextProps {
   openModal: boolean;
   closeCart: () => void;
   isNavbarOpen: boolean;
-
+  notify: () => void;
   handleLinkClick: () => void;
   toggleNavbar: () => void;
 }
@@ -37,8 +38,21 @@ export function UseShoppingCart() {
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useLocalStorage<CartItem[]>("shopping-cart", []);
   const [openModal, setOpenModal] = useState(false);
-
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+
+  const notify = () => {
+    toast.success("Item added successfully!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
   const toggleNavbar = () => {
     setIsNavbarOpen(!isNavbarOpen);
     document.body.style.overflow = isNavbarOpen ? "auto" : "hidden";
@@ -118,6 +132,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         closeCart,
         openModal,
         isNavbarOpen,
+        notify,
         toggleNavbar,
         handleLinkClick,
         setOpenModal,

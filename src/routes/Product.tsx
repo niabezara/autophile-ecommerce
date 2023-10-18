@@ -20,6 +20,7 @@ export default function Product() {
     decreaseCartQuantity,
     addToCart,
     getItemQuantity,
+    notify,
   } = UseShoppingCart();
 
   const quantity = product?.id ? getItemQuantity(product.id) : 0;
@@ -77,7 +78,10 @@ export default function Product() {
                 </button>
               </div>
               <motion.button
-                onClick={() => addToCart(product)}
+                onClick={() => {
+                  addToCart(product);
+                  notify();
+                }}
                 className="GlobalButton"
                 whileHover={{ scale: 1.1, opacity: 1 }}
               >

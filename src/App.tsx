@@ -12,6 +12,8 @@ import Product from "./routes/Product";
 import { CartProvider } from "./context/CartContext";
 import CheckOut from "./routes/CheckOut";
 import LoadingSpinner from "./components/Spinner";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,6 +36,7 @@ function App() {
       </Helmet>
       <GlobalStyle />
       <CartProvider>
+        <ToastContainer />
         {isLoading ? (
           <LoadingSpinner />
         ) : (
