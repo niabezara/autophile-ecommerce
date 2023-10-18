@@ -1,27 +1,25 @@
-# React + TypeScript + Vite
+Autophile E-commerce Web Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the code for an Autophile e-commerce web page built using React, TypeScript, React Router, Styled Components, Framer Motion, React Toastify, and custom hooks for state management. The web page allows clients to browse products, add them to their cart, choose a shipment method, and make payments using e-money or cash.
 
-Currently, two official plugins are available:
+Features
+> Browse products and view product details.
+> Add products to the cart.
+> Choose a shipment method.
+> Make payments using e-money or cash.
+> Calculate shipping charges and VAT.
+> Display loading spinner during page load.
+> Use modals for a better user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Technologies Used
+> React: JavaScript library for building user interfaces.
+> TypeScript: A superset of JavaScript that adds static typing.
+> React Router: Declarative routing for React.js.
+> Styled Components: CSS-in-JS library for styling React components.
+> Framer Motion: Animation library for React.
+> React Toastify: A toast notification library for React.
+> useContext: React hook for state management.
+> Custom Hooks: Custom React hooks for code organization and reusability.
 
-## Expanding the ESLint configuration
+![Code-2022-11-31-53](https://github.com/niabezara/autophile-ecommerce/assets/118462345/e9d1a559-d181-4dc1-9dc6-e1da724d986d)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
