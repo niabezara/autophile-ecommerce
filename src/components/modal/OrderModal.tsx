@@ -17,9 +17,9 @@ export default function OrderModal({
 
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowX = "hidden";
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflowX = "auto";
     }
   }, [open]);
 

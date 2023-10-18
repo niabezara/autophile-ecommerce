@@ -17,9 +17,9 @@ export default function ShopModal({
   const CartRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowX = "hidden";
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflowX = "auto";
     }
   }, [open]);
 
