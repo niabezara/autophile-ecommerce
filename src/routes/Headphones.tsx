@@ -3,18 +3,33 @@ import Products from "../data/data.json";
 import Categories from "../components/Categories";
 import { Link } from "react-router-dom";
 import Info from "../components/Info";
-
+import { motion } from "framer-motion";
+import { fadeInLeftVariant, fadeInRightVariant } from "../utils/Variants";
 export default function Headphones() {
   return (
     <Container>
-      <div className="heading">
+      <motion.div
+        initial={{ y: -250 }}
+        animate={{ y: 0 }}
+        transition={{ delay: 0.2, type: "spring", stiffness: 10 }}
+        className="heading"
+      >
         <h1>HEADPHONES</h1>
-      </div>
+      </motion.div>
       <SubContainer>
         {Products.map(
           (item, index) =>
             item.category === "headphones" && (
-              <Wrapper key={item.id} index={index}>
+              <Wrapper
+                key={item.id}
+                index={index}
+                as={motion.div}
+                variants={
+                  index % 2 === 0 ? fadeInRightVariant : fadeInLeftVariant
+                }
+                initial="hidden"
+                whileInView="visible"
+              >
                 <Card>
                   <Image
                     src={
@@ -32,7 +47,12 @@ export default function Headphones() {
                   <h3 className="Title">{item.name}</h3>
                   <p className="ProductDescription">{item.description}</p>
                   <Link to={`/product/${item.slug}`}>
-                    <button className="GlobalButton">See Product</button>
+                    <motion.button
+                      className="GlobalButton"
+                      whileHover={{ scale: 1.1, opacity: 1 }}
+                    >
+                      See Product
+                    </motion.button>
                   </Link>
                 </div>
               </Wrapper>
@@ -75,6 +95,7 @@ const Container = styled.main`
     font-size: 15px;
     font-weight: 700;
     letter-spacing: 2px;
+    z-index: -10;
     text-transform: uppercase;
     @media screen and (min-width: 900px) {
       padding: 9.7rem;

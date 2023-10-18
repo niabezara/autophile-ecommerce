@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Modal from "../components/modal/ShopModal";
@@ -7,12 +6,9 @@ import { UseShoppingCart } from "../context/CartContext";
 import Categories from "./Categories";
 
 export default function TabletVersion() {
-  const { openCart, openModal, setOpenModal } = UseShoppingCart();
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const { openCart, openModal, setOpenModal, isNavbarOpen, toggleNavbar } =
+    UseShoppingCart();
 
-  const toggleNavbar = () => {
-    setIsNavbarOpen(!isNavbarOpen);
-  };
   return (
     <Head>
       <nav>
@@ -26,7 +22,9 @@ export default function TabletVersion() {
         <NavList open={isNavbarOpen}>
           <Categories />
         </NavList>
-        <Logo src="/assets/shared/desktop/logo.svg" alt="" />
+        <Link to="/">
+          <Logo src="/assets/shared/desktop/logo.svg" alt="" />
+        </Link>
       </nav>
       <button
         onClick={openCart}

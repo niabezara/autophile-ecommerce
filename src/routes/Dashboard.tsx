@@ -7,7 +7,11 @@ import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   return (
-    <main>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1.5, duration: 5 }}
+    >
       <Conatiner>
         <div className="subCont">
           <New>NEW PRODUCT</New>
@@ -29,7 +33,7 @@ export default function Dashboard() {
       <Categories />
       <SecondCategory />
       <Info />
-    </main>
+    </motion.main>
   );
 }
 

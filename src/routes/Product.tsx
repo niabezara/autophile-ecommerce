@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import ProductData from "../data/data.json";
 import styled from "styled-components";
-
+import { motion } from "framer-motion";
 import SimilarProducts from "../components/SimilarProducts";
 import Categories from "../components/Categories";
 import Info from "../components/Info";
@@ -76,12 +76,13 @@ export default function Product() {
                   +
                 </button>
               </div>
-              <button
+              <motion.button
                 onClick={() => addToCart(product)}
                 className="GlobalButton"
+                whileHover={{ scale: 1.1, opacity: 1 }}
               >
                 ADD TO CART
-              </button>
+              </motion.button>
             </Btns>
           </div>
         </Wrapper>

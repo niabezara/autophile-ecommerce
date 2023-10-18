@@ -1,11 +1,17 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { fadeInRightVariant, fadeInLeftVariant } from "../utils/Variants";
 
 export default function SecondCategory() {
   return (
     <Container>
-      <Card>
+      <Card
+        as={motion.div}
+        variants={fadeInRightVariant}
+        initial="hidden"
+        whileInView="visible"
+      >
         <div style={{ width: "fit-content", margin: "0 auto" }}>
           <Image
             src={
@@ -33,7 +39,12 @@ export default function SecondCategory() {
           </Link>
         </Section>
       </Card>
-      <Zx7Card>
+      <Zx7Card
+        as={motion.div}
+        variants={fadeInLeftVariant}
+        initial="hidden"
+        whileInView="visible"
+      >
         <section>
           <h1>ZX7 SPEAKER</h1>
           <Link to={`/product/zx7-speaker`} style={{ textDecoration: "none" }}>
@@ -49,7 +60,12 @@ export default function SecondCategory() {
           </Link>
         </section>
       </Zx7Card>
-      <YxCard>
+      <YxCard
+        as={motion.div}
+        variants={fadeInRightVariant}
+        initial="hidden"
+        whileInView="visible"
+      >
         <Eaphonesimg src="/assets/home/mobile/image-earphones-yx1.jpg" alt="" />
         <div>
           <h1>YX1 EARPHONES</h1>

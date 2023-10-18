@@ -5,14 +5,9 @@ import ShopList from "./ShopList";
 import { UseShoppingCart } from "../context/CartContext";
 import Categories from "./Categories";
 
-export default function MobileVersion({
-  isNavbarOpen,
-  toggleNavbar,
-}: {
-  isNavbarOpen: boolean;
-  toggleNavbar: () => void;
-}) {
-  const { openCart, openModal, setOpenModal } = UseShoppingCart();
+export default function MobileVersion() {
+  const { openCart, openModal, setOpenModal, isNavbarOpen, toggleNavbar } =
+    UseShoppingCart();
   return (
     <Head open={isNavbarOpen}>
       <nav>

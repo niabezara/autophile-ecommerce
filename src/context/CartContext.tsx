@@ -20,6 +20,10 @@ interface ProductContextProps {
   setOpenModal: any;
   openModal: boolean;
   closeCart: () => void;
+  isNavbarOpen: boolean;
+
+  handleLinkClick: () => void;
+  toggleNavbar: () => void;
 }
 
 const CartContext = createContext<ProductContextProps>(
@@ -33,6 +37,16 @@ export function UseShoppingCart() {
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useLocalStorage<CartItem[]>("shopping-cart", []);
   const [openModal, setOpenModal] = useState(false);
+
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const toggleNavbar = () => {
+    setIsNavbarOpen(!isNavbarOpen);
+    document.body.style.overflow = isNavbarOpen ? "auto" : "hidden";
+  };
+
+  const handleLinkClick = () => {
+    setIsNavbarOpen(false);
+  };
 
   const openCart = () => {
     setOpenModal((prevOpenModal) => !prevOpenModal);
@@ -103,6 +117,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         items,
         closeCart,
         openModal,
+        isNavbarOpen,
+        toggleNavbar,
+        handleLinkClick,
         setOpenModal,
         openCart,
         addToCart,

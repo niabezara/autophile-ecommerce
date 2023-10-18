@@ -3,18 +3,33 @@ import Products from "../data/data.json";
 import Categories from "../components/Categories";
 import Info from "../components/Info";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
+import { fadeInLeftVariant, fadeInRightVariant } from "../utils/Variants";
 export default function Speakers() {
   return (
     <Container>
-      <div className="heading">
+      <motion.div
+        initial={{ y: -250 }}
+        animate={{ y: 0 }}
+        transition={{ delay: 0.2, type: "spring", stiffness: 10 }}
+        className="heading"
+      >
         <h1>SPEAKERS</h1>
-      </div>
+      </motion.div>
       <SubContainer>
         {Products.map(
           (item, index) =>
             item.category === "speakers" && (
-              <Wrapper key={item.id} index={index}>
+              <Wrapper
+                key={item.id}
+                index={index}
+                as={motion.div}
+                variants={
+                  index % 2 === 0 ? fadeInRightVariant : fadeInLeftVariant
+                }
+                initial="hidden"
+                whileInView="visible"
+              >
                 <Card>
                   <Image
                     src={
@@ -32,7 +47,12 @@ export default function Speakers() {
                   <h3 className="Title">{item.name}</h3>
                   <p className="ProductDescription">{item.description}</p>
                   <Link to={`/product/${item.slug}`}>
-                    <button className="GlobalButton">See Product</button>
+                    <motion.button
+                      className="GlobalButton"
+                      whileHover={{ scale: 1.1, opacity: 1 }}
+                    >
+                      See Product
+                    </motion.button>
                   </Link>
                 </div>
               </Wrapper>

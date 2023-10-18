@@ -1,9 +1,14 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
-
+import { fadeInRightVariant, fadeInLeftVariant } from "../utils/Variants";
 export default function Info() {
   return (
     <Container>
       <Image
+        as={motion.img}
+        variants={fadeInRightVariant}
+        initial="hidden"
+        whileInView="visible"
         src={
           window.innerWidth >= 900
             ? "/assets/shared/desktop/image-best-gear.jpg"
@@ -14,7 +19,12 @@ export default function Info() {
         alt=""
       />
 
-      <Card>
+      <Card
+        as={motion.div}
+        variants={fadeInLeftVariant}
+        initial="hidden"
+        whileInView="visible"
+      >
         <h1>
           Bringing you the <span>best</span> audio gear
         </h1>

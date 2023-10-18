@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ProductData from "../data/data.json";
-
+import { motion } from "framer-motion";
 export default function SimilarProducts() {
   const others = ProductData.map((product) => product.others)
     .flat()
@@ -27,7 +27,12 @@ export default function SimilarProducts() {
 
             <h3>{product.name}</h3>
             <Link to={`/product/${product.slug}`}>
-              <button className="GlobalButton">See Product</button>
+              <motion.button
+                className="GlobalButton"
+                whileHover={{ scale: 1.1, opacity: 1 }}
+              >
+                See Product
+              </motion.button>
             </Link>
           </Wrap>
         ))}

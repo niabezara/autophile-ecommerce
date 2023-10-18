@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import MobileVersion from "./MobileVersion";
 import TabletVersion from "./TabletVersion";
 import DesktopVersion from "./DesktopVersion";
+import { motion } from "framer-motion";
 
-export default function NavBar({
-  isNavbarOpen,
-  toggleNavbar,
-}: {
-  isNavbarOpen: boolean;
-  setIsNavbarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  toggleNavbar: () => void;
-}) {
+export default function NavBar() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isTablet, setIsTablet] = useState<boolean>(false);
 
@@ -30,17 +24,18 @@ export default function NavBar({
   }, []);
 
   return (
-    <>
+    <motion.div
+      initial={{ y: -250 }}
+      animate={{ y: 0 }}
+      transition={{ delay: 0.2, type: "spring", stiffness: 10 }}
+    >
       {isMobile ? (
-        <MobileVersion
-          isNavbarOpen={isNavbarOpen}
-          toggleNavbar={toggleNavbar}
-        />
+        <MobileVersion />
       ) : isTablet ? (
         <TabletVersion />
       ) : (
         <DesktopVersion />
       )}
-    </>
+    </motion.div>
   );
 }

@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { UseShoppingCart } from "../context/CartContext";
 
 export default function Categories() {
+  const { handleLinkClick } = UseShoppingCart();
+
   return (
     <Container>
-      <Ul>
+      <Ul onClick={handleLinkClick}>
         {/* Headphones */}
         <li>
           <Link to="/Headphones" style={{ textDecoration: "inherit" }}>

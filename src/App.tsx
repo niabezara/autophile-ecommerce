@@ -3,7 +3,7 @@ import GlobalStyle from "./GlobalStyles";
 import NavBar from "./components/NavBar";
 import { Helmet } from "react-helmet";
 import Dashboard from "./routes/Dashboard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Headphones from "./routes/Headphones";
 import Speakers from "./routes/Speakers";
 import Earphones from "./routes/Earphones";
@@ -11,14 +11,17 @@ import Footer from "./components/Footer";
 import Product from "./routes/Product";
 import { CartProvider } from "./context/CartContext";
 import CheckOut from "./routes/CheckOut";
+import LoadingSpinner from "./components/Spinner";
 
 function App() {
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const toggleNavbar = () => {
-    setIsNavbarOpen(!isNavbarOpen);
-    document.body.style.overflow = isNavbarOpen ? "auto" : "hidden";
-  };
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -31,20 +34,22 @@ function App() {
       </Helmet>
       <GlobalStyle />
       <CartProvider>
-        <NavBar
-          isNavbarOpen={isNavbarOpen}
-          setIsNavbarOpen={setIsNavbarOpen}
-          toggleNavbar={toggleNavbar}
-        />
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/Headphones" element={<Headphones />} />
-          <Route path="/Speakers" element={<Speakers />} />
-          <Route path="/Earphones" element={<Earphones />} />
-          <Route path="/product/:slug" element={<Product />} />
-          <Route path="/checkout" element={<CheckOut />} />
-        </Routes>
-        <Footer />
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/Headphones" element={<Headphones />} />
+              <Route path="/Speakers" element={<Speakers />} />
+              <Route path="/Earphones" element={<Earphones />} />
+              <Route path="/product/:slug" element={<Product />} />
+              <Route path="/checkout" element={<CheckOut />} />
+            </Routes>
+            <Footer />
+          </>
+        )}
       </CartProvider>
     </>
   );
