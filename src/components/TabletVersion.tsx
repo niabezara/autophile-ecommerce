@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Modal from "../components/modal/ShopModal";
 import ShopList from "./ShopList";
 import { UseShoppingCart } from "../context/CartContext";
+import Categories from "./Categories";
 
 export default function TabletVersion() {
   const { openCart, openModal, setOpenModal } = UseShoppingCart();
@@ -23,19 +24,7 @@ export default function TabletVersion() {
         />
 
         <NavList open={isNavbarOpen}>
-          <Link to="/">
-            <li>HOME</li>
-          </Link>
-
-          <Link to="/Headphones">
-            <li>HEADPHONES</li>
-          </Link>
-          <Link to="/Speakers">
-            <li>SPEAKERS</li>
-          </Link>
-          <Link to="/Earphones">
-            <li>EARPHONES</li>
-          </Link>
+          <Categories />
         </NavList>
         <Logo src="/assets/shared/desktop/logo.svg" alt="" />
       </nav>
