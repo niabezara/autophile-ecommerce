@@ -8,11 +8,7 @@ interface OrderModalProps {
   children: React.ReactNode;
 }
 
-export default function OrderModal({
-  open,
-  onClose,
-  children,
-}: OrderModalProps) {
+export default function OrderModal({ open, children }: OrderModalProps) {
   const portalElement = document.getElementById("portal");
 
   useEffect(() => {
