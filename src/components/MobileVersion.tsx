@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Modal from "../components/modal/ShopModal";
 import ShopList from "./ShopList";
 import { UseShoppingCart } from "../context/CartContext";
+import Categories from "./Categories";
 
 export default function MobileVersion({
   isNavbarOpen,
@@ -13,7 +14,7 @@ export default function MobileVersion({
 }) {
   const { openCart, openModal, setOpenModal } = UseShoppingCart();
   return (
-    <Head>
+    <Head open={isNavbarOpen}>
       <nav>
         <img
           src="/assets/shared/tablet/icon-hamburger.svg"
@@ -22,22 +23,12 @@ export default function MobileVersion({
           onClick={toggleNavbar}
         />
         <NavList open={isNavbarOpen}>
-          <Link to="/">
-            <li>HOME</li>
-          </Link>
-
-          <Link to="/Headphones">
-            <li>HEADPHONES</li>
-          </Link>
-          <Link to="/Speakers">
-            <li>SPEAKERS</li>
-          </Link>
-          <Link to="/Earphones">
-            <li>EARPHONES</li>
-          </Link>
+          <Categories />
         </NavList>
       </nav>
-      <img src="/assets/shared/desktop/logo.svg" alt="" />
+      <Link to="/">
+        <img src="/assets/shared/desktop/logo.svg" alt="" />
+      </Link>
       <button
         onClick={openCart}
         style={{ background: "transparent", border: "none" }}
@@ -55,31 +46,23 @@ export default function MobileVersion({
   );
 }
 
-const Head = styled.div`
-  background-color: black;
-  /* z-index: 9999; */
-  display: flex;
-  align-items: center;
-  position: relative;
+const Head = styled.header<{ open: boolean }>`
+  border-bottom: 1px solid
+    hsla(240, 55.55555555555569%, 98.23529411764707%, 0.17);
   padding: 2.4rem;
+  position: ${({ open }) => (open ? "fixed" : "unset")};
+  align-items: center;
+  width: 100%;
   justify-content: space-between;
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0.2;
-    height: 1px;
-    background-color: white;
-  }
+  display: flex;
+  z-index: 10;
+  background: black;
 `;
 
 const NavList = styled.ul<{ open: boolean }>`
-  display: ${({ open }) => (open ? "flex" : "none")};
-  visibility: ${({ open }) => (open ? "" : "hidden")};
+  display: flex;
   list-style: none;
-  align-items: center;
+  height: 100%;
   flex-flow: column nowrap;
   position: fixed;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};

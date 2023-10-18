@@ -43,7 +43,7 @@ export default function DesktopVersion() {
     </Head>
   );
 }
-const Head = styled.div`
+const Head = styled.header`
   background-color: black;
   align-items: center;
   padding: 3.9rem;

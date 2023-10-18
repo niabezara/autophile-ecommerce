@@ -30,7 +30,7 @@ export default function NavBar({
   }, []);
 
   return (
-    <header>
+    <>
       {isMobile ? (
         <MobileVersion
           isNavbarOpen={isNavbarOpen}
@@ -41,6 +41,6 @@ export default function NavBar({
       ) : (
         <DesktopVersion />
       )}
-    </header>
+    </>
   );
 }

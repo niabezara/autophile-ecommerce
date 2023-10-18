@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
   body{
     font-family: 'Manrope', sans-serif;
     font-style: normal;
+
    
   }
   ::-webkit-scrollbar{

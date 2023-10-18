@@ -57,7 +57,7 @@ export default function TabletVersion() {
   );
 }
 
-const Head = styled.div`
+const Head = styled.header`
   background-color: black;
   display: flex;
   align-items: center;
