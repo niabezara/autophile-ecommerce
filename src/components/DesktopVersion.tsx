@@ -16,17 +16,7 @@ export default function DesktopVersion() {
         <Nav>
           <ul>
             <Link to="/">
-              <li>HOME</li>
-            </Link>
-
-            <Link to="/Headphones">
-              <li>HEADPHONES</li>
-            </Link>
-            <Link to="/Speakers">
-              <li>SPEAKERS</li>
-            </Link>
-            <Link to="/Earphones">
-              <li>EARPHONES</li>
+              <li>API</li>
             </Link>
           </ul>
         </Nav>
