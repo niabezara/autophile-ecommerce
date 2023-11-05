@@ -9,28 +9,38 @@ export default function DesktopVersion() {
 
   return (
     <Head>
-      <div className="Subheader">
-        <Link to="/">
-          <Logo src="/assets/shared/desktop/logo.svg" alt="" />
-        </Link>
-        <Nav>
-          <ul>
-            <Link to="/">
-              <li>API</li>
-            </Link>
-          </ul>
-        </Nav>
-        <button
-          onClick={openCart}
-          style={{ background: "transparent", border: "none" }}
-        >
-          <Logo src="/assets/shared/desktop/icon-cart.svg" alt="" />
-        </button>
-        <Modal open={openModal} setOpenModal={setOpenModal}>
-          <ShopList />
-        </Modal>
-      </div>
-    </Head>
+    <div className="Subheader">
+      <Link to="/">
+        <Logo src="/assets/shared/desktop/logo.svg" alt="" />
+      </Link>
+      <Nav>
+        <ul>
+          <Link to="/">
+            <li>HOME</li>
+          </Link>
+
+          <Link to="/Headphones">
+            <li>HEADPHONES</li>
+          </Link>
+          <Link to="/Speakers">
+            <li>SPEAKERS</li>
+          </Link>
+          <Link to="/Earphones">
+            <li>EARPHONES</li>
+          </Link>
+        </ul>
+      </Nav>
+      <button
+        onClick={openCart}
+        style={{ background: "transparent", border: "none" }}
+      >
+        <Logo src="/assets/shared/desktop/icon-cart.svg" alt="" />
+      </button>
+      <Modal open={openModal} setOpenModal={setOpenModal}>
+        <ShopList />
+      </Modal>
+    </div>
+  </Head>
   );
 }
 const Head = styled.header`
